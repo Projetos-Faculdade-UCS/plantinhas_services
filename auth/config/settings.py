@@ -104,7 +104,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {"default": env.db("DATABASE_URL", default="sqlite:///db.sqlite3")}  # type: ignore
+DATABASES = {"default": env.db("AUTH_DATABASE_URL", default="sqlite:///db.sqlite3")}  # type: ignore
 
 
 # Password validation
