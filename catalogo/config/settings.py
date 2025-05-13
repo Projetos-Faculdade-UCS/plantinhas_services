@@ -63,6 +63,7 @@ THIRD_PARTY_APPS = [
     "storages",
     "django_filters",
     "plantinhas_auth_lib",
+    "drf_standardized_errors",
 ]
 
 SELF_APPS = [
@@ -165,9 +166,16 @@ if not DEBUG and "SENTRY_DSN" in os.environ:
 
 # Plantinhas Auth settings
 AUTH_DB_URL = env(
-    "AUTH_DB_URL", default="postgresql://postgres:postgres@localhost:5432/postgres"
+    "AUTH_DB_URL",
+    default="postgresql://postgres:postgres@localhost:5432/postgres",  # type: ignore
 )
 AUTH_SERVICE_TOKEN_URL = env(
-    "AUTH_SERVICE_TOKEN_URL", default="http://localhost:8005/auth/api/v1/login/"
+    "AUTH_SERVICE_TOKEN_URL",
+    default="http://localhost:8005/auth/api/v1/login/",  # type: ignore
 )
-AUTH_BASE_URL = env("AUTH_BASE_URL", default="http://localhost:8005/")
+AUTH_BASE_URL = env("AUTH_BASE_URL", default="http://localhost:8005/")  # type: ignore
+
+REST_FRAMEWORK = {
+    # other settings
+    "EXCEPTION_HANDLER": "drf_standardized_errors.handler.exception_handler"
+}
