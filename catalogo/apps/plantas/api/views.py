@@ -1,9 +1,9 @@
-from rest_framework.viewsets import ModelViewSet
+from apps.plantas.api.serializers import CategoriaSerializer
+from apps.plantas.api.serializers import PlantaSerializer
+from apps.plantas.models import Categoria
+from apps.plantas.models import Planta
 
-from catalogo.apps.plantas.api.serializers import CategoriaSerializer
-from catalogo.apps.plantas.api.serializers import PlantaSerializer
-from catalogo.apps.plantas.models import Categoria
-from catalogo.apps.plantas.models import Planta
+from rest_framework.viewsets import ModelViewSet
 
 
 class CategoriaViewSet(ModelViewSet):

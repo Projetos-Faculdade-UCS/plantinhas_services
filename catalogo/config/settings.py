@@ -62,12 +62,13 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "storages",
     "django_filters",
-    "plantinhas_auth_lib",
+    # "plantinhas_auth_lib",
     "drf_standardized_errors",
 ]
 
 SELF_APPS = [
     "apps.core",
+    "apps.plantas.apps.PlantasConfig",
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + SELF_APPS
@@ -145,6 +146,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+# Media files (User uploads)
+MEDIA_URL = "/uploads/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
@@ -189,4 +195,4 @@ REST_FRAMEWORK = {
         "djangorestframework_camel_case.parser.CamelCaseJSONParser",
     ),
 }
-JSON_CAMEL_CASE = {"RENDERER_CLASS": "drf_ujson.renderers.UJSONRenderer"}
+# JSON_CAMEL_CASE = {"RENDERER_CLASS": "drf_ujson.renderers.UJSONRenderer"}

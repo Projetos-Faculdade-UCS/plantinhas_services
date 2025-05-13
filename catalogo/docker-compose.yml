@@ -1,0 +1,32 @@
+services:
+  catalogo:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: catalogo
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python3 manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
+      - CATALOGO_DATABASE_URL=postgresql://catalogo_user:catalogo_password@db:5432/catalogo_db
+    depends_on:
+      - db
+  db:
+    image: postgres:17-alpine
+    container_name: catalogo_db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: catalogo_user
+      POSTGRES_PASSWORD: catalogo_password
+      POSTGRES_DB: catalogo_db
+    ports:
+      - "5431:5432"
+volumes:
+  db_data:
+    driver: local

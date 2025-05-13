@@ -1,7 +1,7 @@
-from rest_framework import serializers
+from apps.plantas.models import Categoria
+from apps.plantas.models import Planta
 
-from catalogo.apps.plantas.models import Categoria
-from catalogo.apps.plantas.models import Planta
+from rest_framework import serializers
 
 
 class CategoriaSerializer(serializers.ModelSerializer):
@@ -43,3 +43,25 @@ class PlantaSerializer(serializers.ModelSerializer):
             "dias_maturidade": {"required": True},
             "dificuldade": {"required": True},
         }
+
+    def create(self, validated_data):
+        """Isto é feito somente quando tem um campo relacionado com outro serializer."""
+        categoria_data = validated_data.pop("categoria")
+        categoria_instance = Categoria.objects.get_or_create(**categoria_data)[0]
+        planta_instance = Planta.objects.create(
+            categoria=categoria_instance, **validated_data
+        )
+        return planta_instance
+
+    def update(self, instance, validated_data):
+        """Isto é feito somente quando tem um campo relacionado com outro serializer."""
+        if "categoria" in validated_data:
+            categoria_data = validated_data.pop("categoria")
+            categoria_instance = Categoria.objects.get_or_create(**categoria_data)[0]
+            instance.categoria = categoria_instance
+
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+
+        instance.save()
+        return instance
