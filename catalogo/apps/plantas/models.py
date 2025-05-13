@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Categoria(models.Model):
-    nome = models.CharField(max_length=100)
+    nome = models.CharField(max_length=100, unique=True)
     descricao = models.TextField()
 
     def __str__(self):
@@ -10,8 +10,8 @@ class Categoria(models.Model):
 
 
 class Planta(models.Model):
-    nome = models.CharField(max_length=100)
-    nome_cientifico = models.CharField(max_length=150)
+    nome = models.CharField(max_length=100, unique=True)
+    nome_cientifico = models.CharField(max_length=150, unique=True)
     foto = models.ImageField(upload_to="plantas/", blank=True, null=True)
     horas_sol = models.CharField(max_length=100)
     solo_ideal = models.CharField(max_length=100)

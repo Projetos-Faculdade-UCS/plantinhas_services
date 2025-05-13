@@ -28,8 +28,8 @@ class PlantaSerializer(serializers.ModelSerializer):
             "temperatura_ideal",
             "estacao_plantio",
             "dias_maturidade",
-            "categoria",
             "dificuldade",
+            "categoria",
         ]
         read_only_fields = ["id"]
         extra_kwargs = {
@@ -47,7 +47,11 @@ class PlantaSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         """Isto é feito somente quando tem um campo relacionado com outro serializer."""
         categoria_data = validated_data.pop("categoria")
-        categoria_instance = Categoria.objects.get_or_create(**categoria_data)[0]
+        nome_categoria = categoria_data.get("nome")
+        # If the category exists (by nome), get it; otherwise create it
+        categoria_instance, created = Categoria.objects.get_or_create(
+            nome=nome_categoria, defaults=categoria_data
+        )
         planta_instance = Planta.objects.create(
             categoria=categoria_instance, **validated_data
         )
@@ -57,7 +61,11 @@ class PlantaSerializer(serializers.ModelSerializer):
         """Isto é feito somente quando tem um campo relacionado com outro serializer."""
         if "categoria" in validated_data:
             categoria_data = validated_data.pop("categoria")
-            categoria_instance = Categoria.objects.get_or_create(**categoria_data)[0]
+            nome_categoria = categoria_data.get("nome")
+            # If the category exists (by nome), get it; otherwise create it
+            categoria_instance, created = Categoria.objects.get_or_create(
+                nome=nome_categoria, defaults=categoria_data
+            )
             instance.categoria = categoria_instance
 
         for attr, value in validated_data.items():
