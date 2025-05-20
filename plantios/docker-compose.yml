@@ -1,0 +1,32 @@
+services:
+  plantios:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: plantios
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python3 manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
+      - PLANTIOS_DATABASE_URL=postgresql://plantios_user:plantios_password@db:5432/plantios_db
+    depends_on:
+      - db
+  db:
+    image: postgres:17-alpine
+    container_name: plantios_db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: plantios_user
+      POSTGRES_PASSWORD: plantios_password
+      POSTGRES_DB: plantios_db
+    ports:
+      - "5431:5432"
+volumes:
+  db_data:
+    driver: local
