@@ -4,6 +4,41 @@ from apps.plantas.models import Planta
 from rest_framework import serializers
 
 
+class DificuldadeField(serializers.Field):
+    """Custom field for handling difficulty levels.
+
+    For GET requests: returns a dict with label and value
+    For POST/PUT requests: accepts a numeric value
+    """
+
+    def to_representation(self, value):
+        label = ""
+        if value <= 1:
+            label = "Muito Fácil"
+        elif value <= 2:
+            label = "Fácil"
+        elif value <= 3:
+            label = "Médio"
+        elif value <= 4:
+            label = "Difícil"
+        else:
+            label = "Muito Difícil"
+
+        return {"label": label, "value": float(value)}
+
+    def to_internal_value(self, data):
+        try:
+            # If data is a dictionary (like from a PATCH with the output format)
+            if isinstance(data, dict) and "value" in data:
+                return float(data["value"])
+            # If data is a simple value
+            return float(data)
+        except (ValueError, TypeError):
+            raise serializers.ValidationError(
+                "Dificuldade deve ser um valor numérico entre 1 e 5."
+            )
+
+
 class CategoriaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Categoria
@@ -14,6 +49,7 @@ class CategoriaSerializer(serializers.ModelSerializer):
 
 class PlantaSerializer(serializers.ModelSerializer):
     categoria = CategoriaSerializer()
+    dificuldade = DificuldadeField()
 
     class Meta:
         model = Planta
@@ -25,7 +61,9 @@ class PlantaSerializer(serializers.ModelSerializer):
             "horas_sol",
             "solo_ideal",
             "ventilacao",
+            "temperatura_minima",
             "temperatura_ideal",
+            "temperatura_maxima",
             "estacao_plantio",
             "dias_maturidade",
             "dificuldade",
@@ -38,10 +76,11 @@ class PlantaSerializer(serializers.ModelSerializer):
             "horas_sol": {"required": True},
             "solo_ideal": {"required": True},
             "ventilacao": {"required": True},
+            "temperatura_minima": {"required": True},
             "temperatura_ideal": {"required": True},
+            "temperatura_maxima": {"required": True},
             "estacao_plantio": {"required": True},
             "dias_maturidade": {"required": True},
-            "dificuldade": {"required": True},
         }
 
     def create(self, validated_data):
@@ -73,3 +112,5 @@ class PlantaSerializer(serializers.ModelSerializer):
 
         instance.save()
         return instance
+
+    # The get_dificuldade method is no longer needed as we use DificuldadeField
