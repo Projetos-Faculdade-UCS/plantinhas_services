@@ -9,7 +9,7 @@ from rest_framework.viewsets import ModelViewSet
 from django_filters.rest_framework import DjangoFilterBackend
 
 
-class CategoriaViewSet(ModelViewSet):
+class CategoriaViewSet(ModelViewSet[Categoria]):
     """
     API endpoint that allows categorias to be viewed or edited.
     """
@@ -19,7 +19,7 @@ class CategoriaViewSet(ModelViewSet):
     http_method_names = ["get", "post", "put", "delete"]
 
 
-class PlantaViewSet(ModelViewSet):
+class PlantaViewSet(ModelViewSet[Planta]):
     """
     API endpoint that allows plantas to be viewed or edited.
     """
