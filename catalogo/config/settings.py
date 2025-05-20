@@ -184,6 +184,9 @@ AUTH_BASE_URL = env("AUTH_BASE_URL", default="http://localhost:8005/")  # type: 
 REST_FRAMEWORK = {
     # other settings
     "EXCEPTION_HANDLER": "drf_standardized_errors.handler.exception_handler",
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend",
+    ],
     "DEFAULT_RENDERER_CLASSES": (
         "djangorestframework_camel_case.render.CamelCaseJSONRenderer",
         "djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer",
