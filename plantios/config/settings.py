@@ -66,7 +66,7 @@ THIRD_PARTY_APPS = [
 ]
 
 SELF_APPS = [
-    "apps.core",
+    "apps.plantio",
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + SELF_APPS

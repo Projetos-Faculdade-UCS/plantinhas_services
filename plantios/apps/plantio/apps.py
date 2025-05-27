@@ -2,7 +2,7 @@ from django.apps import AppConfig
 from django.utils.translation import gettext_lazy as _
 
 
-class PlantasConfig(AppConfig):
+class PlantioConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "apps.plantas"
-    verbose_name = _("Catalogo de Plantas")
+    name = "apps.plantio"
+    verbose_name = _("Catalogo de Plantio")

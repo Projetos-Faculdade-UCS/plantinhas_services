@@ -1,6 +1,8 @@
-from rest_framework import viewsets
-from plantios.apps.plantio.models import Plantio
 from apps.plantio.api.serializers import PlantioSerializer
+from apps.plantio.models import Plantio
+
+from rest_framework import viewsets
+
 
 class PlantioViewSet(viewsets.ModelViewSet):
     queryset = Plantio.objects.all()

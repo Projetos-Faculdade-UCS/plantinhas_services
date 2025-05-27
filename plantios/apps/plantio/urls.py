@@ -9,11 +9,7 @@ app_name = "plantio"
 
 ROUTER = DefaultRouter()
 
-ROUTER.register(
-    prefix="plantios", 
-    viewser=PlantioViewSet,
-    basename='plantios'
-)
+ROUTER.register(prefix="plantios", viewset=PlantioViewSet, basename="plantios")
 
 urlpatterns = [
     path("", include(ROUTER.urls)),
