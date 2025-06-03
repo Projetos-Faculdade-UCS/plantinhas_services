@@ -1,0 +1,32 @@
+services:
+  tutoriais_tarefas:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: tutoriais_tarefas
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: python3 manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+      - PYTHONPATH=/app
+      - TUTORIAIS_DATABASE_URL=postgresql://tutoriais_tarefas_user:tutoriais_tarefas_password@db:5432/tutoriais_tarefas_db
+    depends_on:
+      - db
+  db:
+    image: postgres:17-alpine
+    container_name: tutoriais_tarefas_db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: tutoriais_tarefas_user
+      POSTGRES_PASSWORD: tutoriais_tarefas_password
+      POSTGRES_DB: tutoriais_tarefas_db
+    ports:
+      - "5431:5432"
+volumes:
+  db_data:
+    driver: local
