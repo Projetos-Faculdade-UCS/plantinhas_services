@@ -2,11 +2,11 @@ from __future__ import annotations
 
 import datetime
 
+from apps.tutoriais.models import Tutorial
+
 from django.core import validators
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-
-from tutoriais.models import Tutorial
 
 
 class TarefaHabilidade(models.Model):
@@ -68,7 +68,7 @@ class Tarefa(models.Model):
         )
     )
     tutorial: models.OneToOneField["Tutorial", "Tutorial"] = models.OneToOneField(
-        "Tutorial",
+        "tutoriais.Tutorial",
         on_delete=models.CASCADE,
         related_name="tarefa",
         verbose_name=_("Tutorial"),

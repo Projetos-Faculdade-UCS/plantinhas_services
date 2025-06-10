@@ -69,6 +69,7 @@ THIRD_PARTY_APPS = [
 
 SELF_APPS = [
     "apps.core",
+    "apps.tarefas",
     "apps.tutoriais",
 ]
 
