@@ -60,7 +60,7 @@ class MaterialTutorial(models.Model):
     tutorial: models.ForeignKey[Tutorial, Tutorial] = models.ForeignKey(
         Tutorial,
         on_delete=models.CASCADE,
-        related_name="materiais_tutorial",
+        related_name="materiais",  # Changed from "materiais_tutorial"
         verbose_name=_("Tutorial"),
     )
 
@@ -71,10 +71,18 @@ class MaterialTutorial(models.Model):
         verbose_name=_("Material"),
     )
 
-    quantidade: models.CharField[str, str] = models.CharField(
-        max_length=50,
+    quantidade: models.DecimalField[float, float] = models.DecimalField(
+        max_digits=10,
+        decimal_places=2,
         verbose_name=_("Quantidade"),
-        help_text=_("Ex: 1, 2 litros, 3 xícaras"),
+        help_text=_("Ex: 1, 2, 3 (valor numérico)"),  # Updated help_text
+    )
+
+    unidade: models.CharField[str, str] = models.CharField(
+        max_length=50,
+        verbose_name=_("Unidade"),
+        help_text=_("Ex: un, Litros, g"),
+        default="un",  # Add a default if appropriate or allow blank=True
     )
 
     def __str__(self) -> str:
