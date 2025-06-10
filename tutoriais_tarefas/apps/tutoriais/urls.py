@@ -3,24 +3,35 @@ from django.urls import path
 
 from rest_framework.routers import DefaultRouter
 
-from .api.views import CategoriaViewSet
-from .api.views import PlantaViewSet
+from .api.views import EtapaViewSet
+from .api.views import MaterialTutorialViewSet
+from .api.views import MaterialViewSet
+from .api.views import TutorialViewSet
 
 ROUTER = DefaultRouter()
 
 ROUTER.register(
-    prefix="categorias",
-    viewset=CategoriaViewSet,
-    basename="categorias",
+    prefix="materiais",
+    viewset=MaterialViewSet,
+    basename="materiais",
 )
-
 ROUTER.register(
-    prefix="plantas",
-    viewset=PlantaViewSet,
-    basename="plantas",
+    prefix="tutoriais",
+    viewset=TutorialViewSet,
+    basename="tutoriais",
+)
+ROUTER.register(
+    prefix="materiais-tutoriais",
+    viewset=MaterialTutorialViewSet,
+    basename="materiais-tutoriais",
+)
+ROUTER.register(
+    prefix="etapas",
+    viewset=EtapaViewSet,
+    basename="etapas",
 )
 
-app_name = "plantas"
+app_name = "tutoriais"
 
 urlpatterns = [
     path("", include(ROUTER.urls)),
