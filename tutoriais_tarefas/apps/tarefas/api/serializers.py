@@ -1,10 +1,9 @@
-from tarefas.models import Tarefa
-from tarefas.models import TarefaHabilidade
+from apps.tarefas.models import Tarefa
+from apps.tarefas.models import TarefaHabilidade
+from apps.tutoriais.api.serializers import TutorialSerializer
+from apps.tutoriais.models import Tutorial  # Import Tutorial
 
 from rest_framework import serializers
-
-from tutoriais.api.serializers import TutorialSerializer
-from tutoriais.models import Tutorial  # Import Tutorial
 
 
 class TarefaHabilidadeSerializer(serializers.ModelSerializer[TarefaHabilidade]):

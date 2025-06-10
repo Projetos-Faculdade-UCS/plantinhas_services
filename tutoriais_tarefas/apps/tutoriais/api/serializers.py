@@ -1,7 +1,7 @@
-from tutoriais.models import Etapa
-from tutoriais.models import Material
-from tutoriais.models import MaterialTutorial
-from tutoriais.models import Tutorial
+from apps.tutoriais.models import Etapa
+from apps.tutoriais.models import Material
+from apps.tutoriais.models import MaterialTutorial
+from apps.tutoriais.models import Tutorial
 
 from rest_framework import serializers
 

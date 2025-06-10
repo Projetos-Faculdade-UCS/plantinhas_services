@@ -1,7 +1,7 @@
-from tarefas.api.serializers import TarefaHabilidadeSerializer
-from tarefas.api.serializers import TarefaSerializer
-from tarefas.models import Tarefa
-from tarefas.models import TarefaHabilidade
+from apps.tarefas.api.serializers import TarefaHabilidadeSerializer
+from apps.tarefas.api.serializers import TarefaSerializer
+from apps.tarefas.models import Tarefa
+from apps.tarefas.models import TarefaHabilidade
 
 from rest_framework.viewsets import ModelViewSet
 

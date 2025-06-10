@@ -1,8 +1,7 @@
-from django.urls import (
-    include,
-    path,
-)
+from django.urls import include
+from django.urls import path
 
 urlpatterns = [
-    path("", include("apps.core.urls")),
+    path("tarefas/", include("apps.tarefas.urls", namespace="tarefas")),
+    path("tutoriais/", include("apps.tutoriais.urls", namespace="tutoriais")),
 ]
