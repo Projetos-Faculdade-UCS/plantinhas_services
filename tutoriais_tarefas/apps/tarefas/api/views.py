@@ -1,31 +1,18 @@
-from apps.tutoriais.api.filters import PlantaFilter
-from apps.tutoriais.api.serializers import CategoriaSerializer
-from apps.tutoriais.api.serializers import PlantaSerializer
-from apps.tutoriais.models import Categoria
-from apps.tutoriais.models import Planta
+from tarefas.api.serializers import TarefaHabilidadeSerializer
+from tarefas.api.serializers import TarefaSerializer
+from tarefas.models import Tarefa
+from tarefas.models import TarefaHabilidade
 
 from rest_framework.viewsets import ModelViewSet
 
-from django_filters.rest_framework import DjangoFilterBackend
 
-
-class CategoriaViewSet(ModelViewSet[Categoria]):
-    """
-    API endpoint that allows categorias to be viewed or edited.
-    """
-
-    queryset = Categoria.objects.all()
-    serializer_class = CategoriaSerializer
+class TarefaHabilidadeViewSet(ModelViewSet[TarefaHabilidade]):
+    queryset = TarefaHabilidade.objects.all()
+    serializer_class = TarefaHabilidadeSerializer
     http_method_names = ["get", "post", "put", "delete"]
 
 
-class PlantaViewSet(ModelViewSet[Planta]):
-    """
-    API endpoint that allows plantas to be viewed or edited.
-    """
-
-    queryset = Planta.objects.all()
-    serializer_class = PlantaSerializer
+class TarefaViewSet(ModelViewSet[Tarefa]):
+    queryset = Tarefa.objects.all()
+    serializer_class = TarefaSerializer
     http_method_names = ["get", "post", "put", "delete"]
-    filterset_class = PlantaFilter
-    filter_backends = [DjangoFilterBackend]

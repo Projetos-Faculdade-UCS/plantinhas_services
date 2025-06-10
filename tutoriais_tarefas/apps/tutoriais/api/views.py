@@ -1,31 +1,50 @@
-from apps.tutoriais.api.filters import PlantaFilter
-from apps.tutoriais.api.serializers import CategoriaSerializer
-from apps.tutoriais.api.serializers import PlantaSerializer
-from apps.tutoriais.models import Categoria
-from apps.tutoriais.models import Planta
+from apps.tutoriais.api.serializers import EtapaSerializer
+from apps.tutoriais.api.serializers import MaterialSerializer
+from apps.tutoriais.api.serializers import MaterialTutorialSerializer
+from apps.tutoriais.api.serializers import TutorialSerializer
+from apps.tutoriais.models import Etapa
+from apps.tutoriais.models import Material
+from apps.tutoriais.models import MaterialTutorial
+from apps.tutoriais.models import Tutorial
 
 from rest_framework.viewsets import ModelViewSet
 
-from django_filters.rest_framework import DjangoFilterBackend
 
-
-class CategoriaViewSet(ModelViewSet[Categoria]):
+class MaterialViewSet(ModelViewSet[Material]):
     """
-    API endpoint that allows categorias to be viewed or edited.
+    API endpoint that allows materials to be viewed or edited.
     """
 
-    queryset = Categoria.objects.all()
-    serializer_class = CategoriaSerializer
+    queryset = Material.objects.all()
+    serializer_class = MaterialSerializer
     http_method_names = ["get", "post", "put", "delete"]
 
 
-class PlantaViewSet(ModelViewSet[Planta]):
+class TutorialViewSet(ModelViewSet[Tutorial]):
     """
-    API endpoint that allows plantas to be viewed or edited.
+    API endpoint that allows tutorials to be viewed or edited.
     """
 
-    queryset = Planta.objects.all()
-    serializer_class = PlantaSerializer
+    queryset = Tutorial.objects.all()
+    serializer_class = TutorialSerializer
     http_method_names = ["get", "post", "put", "delete"]
-    filterset_class = PlantaFilter
-    filter_backends = [DjangoFilterBackend]
+
+
+class MaterialTutorialViewSet(ModelViewSet[MaterialTutorial]):
+    """
+    API endpoint that allows material-tutorial relationships to be viewed or edited.
+    """
+
+    queryset = MaterialTutorial.objects.all()
+    serializer_class = MaterialTutorialSerializer
+    http_method_names = ["get", "post", "put", "delete"]
+
+
+class EtapaViewSet(ModelViewSet[Etapa]):
+    """
+    API endpoint that allows etapas to be viewed or edited.
+    """
+
+    queryset = Etapa.objects.all()
+    serializer_class = EtapaSerializer
+    http_method_names = ["get", "post", "put", "delete"]
