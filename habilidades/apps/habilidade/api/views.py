@@ -2,13 +2,13 @@ from rest_framework import viewsets
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework import status
-from habilidades.apps.habilidade.models import Habilidade
-from apps.habilidade.api.serializers import HabilidadeSerializer
+from apps.habilidade.models import HabilidadeUser
+from apps.habilidade.api.serializers import HabilidadeUserSerializer
 
 
 class HabilidadeViewSet(viewsets.ModelViewSet):
-    queryset = Habilidade.objects.all()
-    serializer_class = HabilidadeSerializer
+    queryset = HabilidadeUser.objects.all()
+    serializer_class = HabilidadeUserSerializer
 
     @action(detail=True, methods=["post"], url_path="aumentar-nivel")
     def aumentar_nivel(self, request, pk=None):

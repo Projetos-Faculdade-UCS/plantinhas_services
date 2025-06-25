@@ -62,11 +62,11 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "storages",
     "django_filters",
-    "plantinhas_auth_lib",
+    # "plantinhas_auth_lib",
 ]
 
 SELF_APPS = [
-    "apps.core",
+    "apps.habilidade",
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + SELF_APPS
