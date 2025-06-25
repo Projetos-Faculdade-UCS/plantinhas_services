@@ -26,7 +26,7 @@ services:
       POSTGRES_PASSWORD: tutoriais_tarefas_password
       POSTGRES_DB: tutoriais_tarefas_db
     ports:
-      - "5431:5432"
+      - "5435:5432"
 volumes:
   db_data:
     driver: local
