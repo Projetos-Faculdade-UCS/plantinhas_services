@@ -2,7 +2,7 @@ services:
   habilidades:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: ../Dockerfile.dev
     container_name: habilidades
     volumes:
       - .:/app
