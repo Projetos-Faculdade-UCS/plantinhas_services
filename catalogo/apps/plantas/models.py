@@ -33,7 +33,9 @@ class Planta(models.Model):
     )
     estacao_plantio = models.CharField(max_length=100)
     dias_maturidade = models.IntegerField()
-    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    categoria = models.ForeignKey(
+        Categoria, on_delete=models.CASCADE, related_name="plantas"
+    )
     dificuldade = models.DecimalField(
         max_digits=2,
         decimal_places=1,
