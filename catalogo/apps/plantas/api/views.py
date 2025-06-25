@@ -1,5 +1,4 @@
 from apps.plantas.api.filters import PlantaFilter
-from apps.plantas.api.pagination import CustomPagination
 from apps.plantas.api.pagination import PlantaPagination
 from apps.plantas.api.serializers import CategoriaSerializer
 from apps.plantas.api.serializers import PlantaListSerializer
@@ -19,7 +18,6 @@ class CategoriaViewSet(ModelViewSet[Categoria]):
 
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
-    pagination_class = CustomPagination
     http_method_names = ["get", "post", "put", "delete"]
 
 
