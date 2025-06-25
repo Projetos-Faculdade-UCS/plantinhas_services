@@ -93,6 +93,21 @@ class CategoriaSerializer(serializers.ModelSerializer):  # type: ignore
         }
 
 
+class PlantaListSerializer(serializers.ModelSerializer):  # type: ignore
+    """Serializer for Planta list view with minimal fields."""
+
+    dificuldade = DificuldadeField()
+
+    class Meta:  # type: ignore
+        model = Planta
+        fields = [
+            "id",
+            "nome",
+            "foto",
+            "dificuldade",
+        ]
+
+
 class PlantaSerializer(serializers.ModelSerializer):  # type: ignore
     categoria = CategoriaSerializer()
     dificuldade = DificuldadeField()
