@@ -12,8 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 import os
 from pathlib import Path
+from typing import Any
 
-import environ
+import environ  # type: ignore
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 
@@ -21,7 +22,7 @@ from sentry_sdk.integrations.django import DjangoIntegration
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Read .env file if it exists
-environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
+environ.Env.read_env(os.path.join(BASE_DIR, ".env"))  # type: ignore
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
@@ -42,11 +43,12 @@ env = environ.Env(
     ),
 )
 
-env.read_env()
+env.read_env()  # type: ignore
 
-SECRET_KEY = env("SECRET_KEY")
+# Cast the result to str to ensure it meets the type annotation requirement
+SECRET_KEY: str = str(env("SECRET_KEY"))  # type: ignore
 
-ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")  # type: ignore
 
 DEFAULT_APPS = [
     "django.contrib.admin",
@@ -62,11 +64,13 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "storages",
     "django_filters",
-    "plantinhas_auth_lib",
+    # "plantinhas_auth_lib",
 ]
 
 SELF_APPS = [
     "apps.core",
+    "apps.tarefas",
+    "apps.tutoriais",
 ]
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + SELF_APPS
@@ -84,7 +88,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "config.urls"
 
-TEMPLATES = [
+TEMPLATES: list[dict[str, Any]] = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [],
@@ -105,8 +109,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-DATABASES = {"default": env.db("TUTORIAIS_DATABASE_URL")}
-print(DATABASES)
+DATABASES: dict[str, Any] = {"default": env.db("TUTORIAIS_DATABASE_URL")}  # type: ignore
 
 
 # Password validation
@@ -164,10 +167,10 @@ if not DEBUG and "SENTRY_DSN" in os.environ:
     )
 
 # Plantinhas Auth settings
-AUTH_DB_URL = env(
-    "AUTH_DB_URL", default="postgresql://postgres:postgres@localhost:5432/postgres"
+AUTH_DB_URL: str = str(
+    env("AUTH_DB_URL", default="postgresql://postgres:postgres@localhost:5432/postgres")  # type: ignore
+)  # type: ignore
+AUTH_SERVICE_TOKEN_URL: str = str(
+    env("AUTH_SERVICE_TOKEN_URL", default="http://localhost:8005/auth/api/v1/login/")  # type: ignore
 )
-AUTH_SERVICE_TOKEN_URL = env(
-    "AUTH_SERVICE_TOKEN_URL", default="http://localhost:8005/auth/api/v1/login/"
-)
-AUTH_BASE_URL = env("AUTH_BASE_URL", default="http://localhost:8005/")
+AUTH_BASE_URL: str = str(env("AUTH_BASE_URL", default="http://localhost:8005/"))  # type: ignore

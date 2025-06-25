@@ -1,5 +1,8 @@
 from apps.plantas.api.filters import PlantaFilter
+from apps.plantas.api.pagination import PlantaPagination
+from apps.plantas.api.serializers import CategoriaListSerializer
 from apps.plantas.api.serializers import CategoriaSerializer
+from apps.plantas.api.serializers import PlantaListSerializer
 from apps.plantas.api.serializers import PlantaSerializer
 from apps.plantas.models import Categoria
 from apps.plantas.models import Planta
@@ -18,6 +21,12 @@ class CategoriaViewSet(ModelViewSet[Categoria]):
     serializer_class = CategoriaSerializer
     http_method_names = ["get", "post", "put", "delete"]
 
+    def get_serializer_class(self):  # type: ignore
+        """Return different serializers for list and detail views."""
+        if self.action == "list":
+            return CategoriaListSerializer
+        return CategoriaSerializer
+
 
 class PlantaViewSet(ModelViewSet[Planta]):
     """
@@ -26,6 +35,13 @@ class PlantaViewSet(ModelViewSet[Planta]):
 
     queryset = Planta.objects.all()
     serializer_class = PlantaSerializer
+    pagination_class = PlantaPagination
     http_method_names = ["get", "post", "put", "delete"]
     filterset_class = PlantaFilter
     filter_backends = [DjangoFilterBackend]
+
+    def get_serializer_class(self):  # type: ignore
+        """Return different serializers for list and detail views."""
+        if self.action == "list":
+            return PlantaListSerializer
+        return PlantaSerializer
