@@ -11,7 +11,7 @@ ROUTER = DefaultRouter()
 
 ROUTER.register(
     prefix="habilidades", 
-    viewser=HabilidadeViewSet,
+    viewset=HabilidadeViewSet,
     basename='habilidades'
 )
 
