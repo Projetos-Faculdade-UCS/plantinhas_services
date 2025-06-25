@@ -1,32 +1,32 @@
 services:
-  plantios:
+  habilidades:
     build:
       context: .
       dockerfile: Dockerfile.dev
-    container_name: plantios
+    container_name: habilidades
     volumes:
       - .:/app
     working_dir: /app
     command: python3 manage.py runserver 0.0.0.0:8000
     ports:
-      - "8004:8000"
+      - "8003:8000"
     environment:
       - PYTHONUNBUFFERED=1
       - PYTHONPATH=/app
-      - PLANTIOS_DATABASE_URL=postgresql://plantios_user:plantios_password@db:5432/plantios_db
+      - HABILIDADES_DATABASE_URL=postgresql://habilidades_user:habilidades_password@db:5432/habilidades_db
     depends_on:
       - db
   db:
     image: postgres:17-alpine
-    container_name: plantios_db
+    container_name: habilidades_db
     volumes:
       - db_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: plantios_user
-      POSTGRES_PASSWORD: plantios_password
-      POSTGRES_DB: plantios_db
+      POSTGRES_USER: habilidades_user
+      POSTGRES_PASSWORD: habilidades_password
+      POSTGRES_DB: habilidades_db
     ports:
-      - "5434:5432"
+      - "5432:5432"
 volumes:
   db_data:
     driver: local
