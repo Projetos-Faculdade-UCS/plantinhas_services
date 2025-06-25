@@ -93,6 +93,29 @@ class CategoriaSerializer(serializers.ModelSerializer):  # type: ignore
         }
 
 
+class CategoriaListSerializer(serializers.ModelSerializer):  # type: ignore
+    """Serializer for Categoria list view with minimal fields."""
+
+    quantidade = serializers.SerializerMethodField()  # quantidade de categorias
+    items = serializers.SerializerMethodField()  # lista de categorias
+
+    def get_quantidade(self, obj: Categoria) -> int:
+        """Returns the number of categories."""
+        return Categoria.objects.count()
+
+    def get_items(self, obj: Categoria) -> list[CategoriaSerializer]:
+        """Returns a list of categories."""
+        categorias = Categoria.objects.all()
+        return CategoriaSerializer(categorias, many=True).data  # type: ignore
+
+    class Meta:  # type: ignore
+        model = Categoria
+        fields = [
+            "quantidade",
+            "items",
+        ]
+
+
 class PlantaListSerializer(serializers.ModelSerializer):  # type: ignore
     """Serializer for Planta list view with minimal fields."""
 
