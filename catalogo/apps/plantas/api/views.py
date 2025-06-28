@@ -29,7 +29,7 @@ class CategoriaViewSet(ModelViewSet[Categoria]):
 
     queryset = Categoria.objects.all()
     serializer_class = CategoriaSerializer
-    http_method_names = ["get", "post", "put", "delete"]
+    http_method_names = ["get"]
     pagination_class = CustomPagination
 
     def get_serializer_class(self):  # type: ignore
@@ -68,7 +68,7 @@ class PlantaViewSet(ModelViewSet[Planta]):
     queryset = Planta.objects.all()
     serializer_class = PlantaSerializer
     pagination_class = PlantaPagination
-    http_method_names = ["get", "post", "put", "delete"]
+    http_method_names = ["get"]
     filterset_class = PlantaFilter
     filter_backends = [DjangoFilterBackend]
 
