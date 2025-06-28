@@ -3,6 +3,9 @@ from typing import TypedDict
 
 from apps.plantas.models import Categoria
 from apps.plantas.models import Planta
+from apps.plantas.models import SugestaoPlanta
+
+from django.db.models import QuerySet
 
 from rest_framework import serializers
 
@@ -66,15 +69,38 @@ class NestedPlantaSerializer(serializers.ModelSerializer):  # type: ignore
 
 class CategoriaSerializer(serializers.ModelSerializer):  # type: ignore
     quantidade_plantas = serializers.SerializerMethodField()
-    plantas = serializers.SerializerMethodField()
 
     def get_quantidade_plantas(self, obj: Categoria) -> int:
         """Returns the number of plants in the category."""
         return obj.plantas.count()  # type: ignore
 
+    class Meta:  # type: ignore
+        model = Categoria
+        fields: list[str] = [
+            "id",
+            "nome",
+            "descricao",
+            "quantidade_plantas",
+        ]
+        read_only_fields: list[str] = ["id"]
+        extra_kwargs: dict[str, dict[str, Any]] = {
+            "nome": {"required": True},
+            "descricao": {"required": True},
+        }
+
+
+class CategoriaListSerializer(CategoriaSerializer):
+    """Serializer for Categoria list view with minimal fields."""
+
+    plantas = serializers.SerializerMethodField()
+
+    def get_plantas_queryset(self, obj: Categoria) -> QuerySet[Planta]:
+        """Returns only the first 10 plants in the category."""
+        return obj.plantas.all()[:10]  # type: ignore
+
     def get_plantas(self, obj: Categoria) -> list[NestedPlantaSerializer]:
         """Returns only the first 10 plants in the category."""
-        plantas = obj.plantas.all()[:10]  # type: ignore
+        plantas = self.get_plantas_queryset(obj)  # type: ignore
         return NestedPlantaSerializer(plantas, many=True).data  # type: ignore
 
     class Meta:  # type: ignore
@@ -175,3 +201,17 @@ class PlantaSerializer(serializers.ModelSerializer):  # type: ignore
         return instance
 
     # The get_dificuldade method is no longer needed as we use DificuldadeField
+
+
+class SugestaoPlantaSerializer(serializers.ModelSerializer):  # type: ignore
+    """Serializer for SugestaoPlanta model."""
+
+    class Meta:  # type: ignore
+        model = SugestaoPlanta
+        fields = ["planta_sugerida", "data_criacao", "usuario"]
+        read_only_fields = ["data_criacao"]
+
+        extra_kwargs = {
+            "usuario": {"required": False},
+            "planta_sugerida": {"required": True},
+        }
