@@ -68,15 +68,34 @@ class NestedPlantaSerializer(serializers.ModelSerializer):  # type: ignore
 
 class CategoriaSerializer(serializers.ModelSerializer):  # type: ignore
     quantidade_plantas = serializers.SerializerMethodField()
-    plantas = serializers.SerializerMethodField()
 
     def get_quantidade_plantas(self, obj: Categoria) -> int:
         """Returns the number of plants in the category."""
         return obj.plantas.count()  # type: ignore
 
+    class Meta:  # type: ignore
+        model = Categoria
+        fields: list[str] = [
+            "id",
+            "nome",
+            "descricao",
+            "quantidade_plantas",
+        ]
+        read_only_fields: list[str] = ["id"]
+        extra_kwargs: dict[str, dict[str, Any]] = {
+            "nome": {"required": True},
+            "descricao": {"required": True},
+        }
+
+
+class CategoriaListSerializer(CategoriaSerializer):
+    """Serializer for Categoria list view with minimal fields."""
+
+    plantas = serializers.SerializerMethodField()
+
     def get_plantas_queryset(self, obj: Categoria) -> QuerySet[Planta]:
         """Returns only the first 10 plants in the category."""
-        return obj.plantas.all()  # type: ignore
+        return obj.plantas.all()[:10]  # type: ignore
 
     def get_plantas(self, obj: Categoria) -> list[NestedPlantaSerializer]:
         """Returns only the first 10 plants in the category."""
@@ -97,13 +116,6 @@ class CategoriaSerializer(serializers.ModelSerializer):  # type: ignore
             "nome": {"required": True},
             "descricao": {"required": True},
         }
-
-
-class CategoriaListSerializer(CategoriaSerializer):
-    """Serializer for Categoria list view with minimal fields."""
-
-    def get_plantas_queryset(self, obj: Categoria) -> QuerySet[Planta, Planta]:
-        return super().get_plantas_queryset(obj)[:10]
 
 
 class PlantaListSerializer(serializers.ModelSerializer):  # type: ignore

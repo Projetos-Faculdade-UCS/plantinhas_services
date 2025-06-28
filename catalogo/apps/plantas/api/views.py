@@ -1,3 +1,6 @@
+from typing import Any
+from typing import cast
+
 from apps.plantas.api.filters import PlantaFilter
 from apps.plantas.api.pagination import CustomPagination
 from apps.plantas.api.pagination import PlantaPagination
@@ -8,6 +11,11 @@ from apps.plantas.api.serializers import PlantaSerializer
 from apps.plantas.models import Categoria
 from apps.plantas.models import Planta
 
+from django.db.models import QuerySet
+
+from rest_framework.decorators import action
+from rest_framework.request import Request
+from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
 from django_filters.rest_framework import DjangoFilterBackend
@@ -28,6 +36,27 @@ class CategoriaViewSet(ModelViewSet[Categoria]):
         if self.action == "list":
             return CategoriaListSerializer
         return CategoriaSerializer
+
+    @action(detail=True, methods=["get"])
+    def plantas(
+        self, request: Request, *args: list[Any], **kwargs: dict[str, Any]
+    ) -> Response:
+        """
+        Returns a paginated list of all plantas in the categorias.
+        """
+        categorias = self.get_object()
+        plantas = cast(QuerySet[Planta], categorias.plantas.all())  # type: ignore
+
+        # Apply pagination
+        paginator = PlantaPagination()
+        page = paginator.paginate_queryset(plantas, request)
+        if page is not None:
+            serializer = PlantaListSerializer(page, many=True)
+            return paginator.get_paginated_response(serializer.data)  # type: ignore
+
+        # Fallback if pagination fails
+        serializer = PlantaListSerializer(plantas, many=True)
+        return Response(serializer.data)  # type: ignore
 
 
 class PlantaViewSet(ModelViewSet[Planta]):
