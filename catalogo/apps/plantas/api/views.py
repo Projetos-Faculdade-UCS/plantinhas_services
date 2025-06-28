@@ -8,6 +8,7 @@ from apps.plantas.api.serializers import CategoriaListSerializer
 from apps.plantas.api.serializers import CategoriaSerializer
 from apps.plantas.api.serializers import PlantaListSerializer
 from apps.plantas.api.serializers import PlantaSerializer
+from apps.plantas.api.serializers import SugestaoPlantaSerializer
 from apps.plantas.models import Categoria
 from apps.plantas.models import Planta
 
@@ -75,4 +76,26 @@ class PlantaViewSet(ModelViewSet[Planta]):
         """Return different serializers for list and detail views."""
         if self.action == "list":
             return PlantaListSerializer
+        elif self.action == "sugerir":
+            return SugestaoPlantaSerializer
         return PlantaSerializer
+
+    @action(detail=False, methods=["post"])
+    def sugerir(
+        self, request: Request, *args: list[Any], **kwargs: dict[str, Any]
+    ) -> Response:
+        """
+        Endpoint to suggest a new planta.
+        """
+        data = request.data.copy()
+        data.update(
+            {"usuario": request.user.id if request.user.is_authenticated else None}  # type: ignore
+        )
+
+        serializer = SugestaoPlantaSerializer(
+            data=data,
+        )  # type: ignore
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=201)  # type: ignore
+        return Response(serializer.errors, status=400)  # type: ignore

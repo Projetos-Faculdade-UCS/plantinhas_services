@@ -3,6 +3,7 @@ from typing import TypedDict
 
 from apps.plantas.models import Categoria
 from apps.plantas.models import Planta
+from apps.plantas.models import SugestaoPlanta
 
 from django.db.models import QuerySet
 
@@ -200,3 +201,17 @@ class PlantaSerializer(serializers.ModelSerializer):  # type: ignore
         return instance
 
     # The get_dificuldade method is no longer needed as we use DificuldadeField
+
+
+class SugestaoPlantaSerializer(serializers.ModelSerializer):  # type: ignore
+    """Serializer for SugestaoPlanta model."""
+
+    class Meta:  # type: ignore
+        model = SugestaoPlanta
+        fields = ["planta_sugerida", "data_criacao", "usuario"]
+        read_only_fields = ["data_criacao"]
+
+        extra_kwargs = {
+            "usuario": {"required": False},
+            "planta_sugerida": {"required": True},
+        }
