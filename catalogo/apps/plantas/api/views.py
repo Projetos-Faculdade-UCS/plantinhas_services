@@ -1,6 +1,7 @@
 from apps.plantas.api.filters import PlantaFilter
 from apps.plantas.api.pagination import CustomPagination
 from apps.plantas.api.pagination import PlantaPagination
+from apps.plantas.api.serializers import CategoriaListSerializer
 from apps.plantas.api.serializers import CategoriaSerializer
 from apps.plantas.api.serializers import PlantaListSerializer
 from apps.plantas.api.serializers import PlantaSerializer
@@ -21,6 +22,12 @@ class CategoriaViewSet(ModelViewSet[Categoria]):
     serializer_class = CategoriaSerializer
     http_method_names = ["get", "post", "put", "delete"]
     pagination_class = CustomPagination
+
+    def get_serializer_class(self):  # type: ignore
+        """Return different serializers for list and detail views."""
+        if self.action == "list":
+            return CategoriaListSerializer
+        return CategoriaSerializer
 
 
 class PlantaViewSet(ModelViewSet[Planta]):

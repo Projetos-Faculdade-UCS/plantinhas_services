@@ -4,6 +4,8 @@ from typing import TypedDict
 from apps.plantas.models import Categoria
 from apps.plantas.models import Planta
 
+from django.db.models import QuerySet
+
 from rest_framework import serializers
 
 
@@ -72,9 +74,13 @@ class CategoriaSerializer(serializers.ModelSerializer):  # type: ignore
         """Returns the number of plants in the category."""
         return obj.plantas.count()  # type: ignore
 
+    def get_plantas_queryset(self, obj: Categoria) -> QuerySet[Planta]:
+        """Returns only the first 10 plants in the category."""
+        return obj.plantas.all()  # type: ignore
+
     def get_plantas(self, obj: Categoria) -> list[NestedPlantaSerializer]:
         """Returns only the first 10 plants in the category."""
-        plantas = obj.plantas.all()[:10]  # type: ignore
+        plantas = self.get_plantas_queryset(obj)  # type: ignore
         return NestedPlantaSerializer(plantas, many=True).data  # type: ignore
 
     class Meta:  # type: ignore
@@ -91,6 +97,13 @@ class CategoriaSerializer(serializers.ModelSerializer):  # type: ignore
             "nome": {"required": True},
             "descricao": {"required": True},
         }
+
+
+class CategoriaListSerializer(CategoriaSerializer):
+    """Serializer for Categoria list view with minimal fields."""
+
+    def get_plantas_queryset(self, obj: Categoria) -> QuerySet[Planta, Planta]:
+        return super().get_plantas_queryset(obj)[:10]
 
 
 class PlantaListSerializer(serializers.ModelSerializer):  # type: ignore
