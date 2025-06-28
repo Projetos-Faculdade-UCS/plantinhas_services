@@ -46,7 +46,7 @@ class CategoriaViewSet(ModelViewSet[Categoria]):
         Returns a paginated list of all plantas in the categorias.
         """
         categorias = self.get_object()
-        plantas = cast(QuerySet[Planta], categorias.plantas.all())  # type: ignore
+        plantas = cast(QuerySet[Planta], categorias.plantas.all().order_by("nome"))  # type: ignore
 
         # Apply pagination
         paginator = PlantaPagination()
@@ -65,7 +65,7 @@ class PlantaViewSet(ModelViewSet[Planta]):
     API endpoint that allows plantas to be viewed or edited.
     """
 
-    queryset = Planta.objects.all()
+    queryset = Planta.objects.all().order_by("nome")
     serializer_class = PlantaSerializer
     pagination_class = PlantaPagination
     http_method_names = ["get"]
