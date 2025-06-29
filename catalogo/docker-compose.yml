@@ -13,9 +13,14 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
       - PYTHONPATH=/app
-      - CATALOGO_DATABASE_URL=postgresql://catalogo_user:catalogo_password@db:5432/catalogo_db
+      - CATALOGO_DATABASE_URL=postgresql://catalogo_user:catalogo_password@catalogo_db:5432/catalogo_db
+      - AUTH_DB_URL=postgresql://auth_user:auth_password@auth_db:5432/auth_db
+      - AUTH_SERVICE_TOKEN_URL=http://auth:8000/auth/api/v1/login/
+      - AUTH_BASE_URL=http://auth:8000/
     depends_on:
       - db
+    networks:
+      - default
   db:
     image: postgres:17-alpine
     container_name: catalogo_db
@@ -27,6 +32,14 @@ services:
       POSTGRES_DB: catalogo_db
     ports:
       - "5432:5432"
+    networks:
+      - default
+
 volumes:
   db_data:
     driver: local
+
+networks:
+  default:
+    external:
+      name: shared-network
