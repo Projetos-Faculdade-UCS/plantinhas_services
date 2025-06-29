@@ -13,9 +13,15 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
       - PYTHONPATH=/app
-      - PLANTIOS_DATABASE_URL=postgresql://plantios_user:plantios_password@db:5432/plantios_db
+      - PLANTIOS_DATABASE_URL=postgresql://plantios_user:plantios_password@plantios_db:5432/plantios_db
+      - AUTH_DB_URL=postgresql://auth_user:auth_password@auth_db:5432/auth_db
+      - AUTH_SERVICE_TOKEN_URL=http://auth:8000/auth/api/v1/login/
+      - AUTH_BASE_URL=http://auth:8000/
     depends_on:
       - db
+    networks:
+      - default
+
   db:
     image: postgres:17-alpine
     container_name: plantios_db
@@ -27,6 +33,14 @@ services:
       POSTGRES_DB: plantios_db
     ports:
       - "5434:5432"
+    networks:
+      - default
+
 volumes:
   db_data:
     driver: local
+
+networks:
+  default:
+    name: shared-network
+    external: true
