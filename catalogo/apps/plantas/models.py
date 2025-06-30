@@ -11,6 +11,21 @@ class Categoria(models.Model):
         return self.nome
 
 
+class SubCategoria(models.Model):
+    nome: "models.CharField[str, str]" = models.CharField(max_length=100, unique=True)
+    descricao: "models.TextField[str, str]" = models.TextField()
+    categoria_pai: "models.ForeignKey[Categoria, Categoria]" = models.ForeignKey(
+        Categoria, on_delete=models.CASCADE, related_name="subcategorias"
+    )
+
+    class Meta:
+        verbose_name = "Subcategoria"
+        verbose_name_plural = "Subcategorias"
+
+    def __str__(self):
+        return f"{self.nome} (Subcategoria de {self.categoria_pai.nome})"
+
+
 class Planta(models.Model):
     nome: "models.CharField[str, str]" = models.CharField(max_length=100, unique=True)
     nome_cientifico: "models.CharField[str, str]" = models.CharField(
@@ -39,6 +54,9 @@ class Planta(models.Model):
     dias_maturidade: "models.IntegerField[int, int]" = models.IntegerField()
     categoria: "models.ForeignKey[Categoria, Categoria]" = models.ForeignKey(
         Categoria, on_delete=models.CASCADE, related_name="plantas"
+    )
+    subcategorias: "models.ManyToManyField[Categoria, Categoria]" = (
+        models.ManyToManyField("SubCategoria", related_name="plantas", blank=True)
     )
     dificuldade: "models.DecimalField[float, float]" = models.DecimalField(
         max_digits=2,

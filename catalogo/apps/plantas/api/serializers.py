@@ -137,6 +137,7 @@ class PlantaListSerializer(serializers.ModelSerializer):  # type: ignore
 class PlantaSerializer(serializers.ModelSerializer):  # type: ignore
     categoria = CategoriaSerializer()
     dificuldade = DificuldadeField()
+    subcategorias = CategoriaSerializer(many=True, required=False)
 
     class Meta:  # type: ignore
         model = Planta
@@ -155,6 +156,7 @@ class PlantaSerializer(serializers.ModelSerializer):  # type: ignore
             "dias_maturidade",
             "dificuldade",
             "categoria",
+            "subcategorias",
         ]
         read_only_fields = ["id"]
         extra_kwargs = {
