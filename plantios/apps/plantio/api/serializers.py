@@ -74,6 +74,7 @@ class PlantioSerializer(serializers.ModelSerializer):
 
     saude = SaudeField()
     sede = SedeField()
+    data_colheita = serializers.DateField(source="data_prevista_colheita")
 
     class Meta:
         model = Plantio
@@ -84,6 +85,6 @@ class PlantioSerializer(serializers.ModelSerializer):
             "saude",
             "sede",
             "data_plantio",
-            "data_prevista_colheita",
+            "data_colheita",
             "informacoes_adicionais",
         ]
