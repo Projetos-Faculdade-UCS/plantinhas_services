@@ -13,20 +13,28 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
       - PYTHONPATH=/app
-      - HABILIDADES_DATABASE_URL=postgresql://habilidades_user:habilidades_password@db:5432/habilidades_db
+      - HABILIDADES_DATABASE_URL=postgresql://habilidades_user:habilidades_password@habilidades_db:5432/habilidades_db
+      - AUTH_DB_URL=postgresql://auth_user:auth_password@auth_db:5432/auth_db
+      - AUTH_SERVICE_TOKEN_URL=http://auth:8000/auth/api/v1/login/
+      - AUTH_BASE_URL=http://auth:8000/
     depends_on:
-      - db
-  db:
+      - habilidades_db
+    networks:
+      - default
+
+  habilidades_db:
     image: postgres:17-alpine
     container_name: habilidades_db
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - habilidades_db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: habilidades_user
       POSTGRES_PASSWORD: habilidades_password
       POSTGRES_DB: habilidades_db
     ports:
-      - "5432:5432"
+      - "5433:5432"
+    networks:
+      - default
 volumes:
-  db_data:
+  habilidades_db_data:
     driver: local

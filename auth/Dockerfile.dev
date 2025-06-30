@@ -1,0 +1,39 @@
+# Base image
+FROM python:3.13-slim
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    # pip
+    PIP_NO_CACHE_DIR=off \
+    PIP_DISABLE_PIP_VERSION_CHECK=on \
+    PIP_DEFAULT_TIMEOUT=100
+
+# Set work directory
+WORKDIR /app
+
+# Install dependencies
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends \
+    build-essential \
+    libpq-dev \
+    gettext \
+    postgresql-client \
+    git \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install Python dependencies
+COPY requirements/common.txt requirements/local.txt requirements/
+RUN pip install --upgrade pip \
+    && pip install -r requirements/local.txt
+
+# Setup development tools
+RUN pip install watchdog[watchmedo] ipython debugpy
+
+# Copy entrypoint script
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
+
+# Copy project files
+COPY . .

@@ -13,20 +13,28 @@ services:
     environment:
       - PYTHONUNBUFFERED=1
       - PYTHONPATH=/app
-      - TUTORIAIS_DATABASE_URL=postgresql://tutoriais_tarefas_user:tutoriais_tarefas_password@db:5432/tutoriais_tarefas_db
+      - TUTORIAIS_DATABASE_URL=postgresql://tutoriais_tarefas_user:tutoriais_tarefas_password@tutoriais_tarefas_db:5432/tutoriais_tarefas_db
+      - AUTH_DB_URL=postgresql://auth_user:auth_password@auth_db:5432/auth_db
+      - AUTH_SERVICE_TOKEN_URL=http://auth:8000/auth/api/v1/login/
+      - AUTH_BASE_URL=http://auth:8000/
     depends_on:
-      - db
-  db:
+      - tutoriais_tarefas_db
+    networks:
+      - default
+
+  tutoriais_tarefas_db:
     image: postgres:17-alpine
     container_name: tutoriais_tarefas_db
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - tutoriais_tarefas_db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: tutoriais_tarefas_user
       POSTGRES_PASSWORD: tutoriais_tarefas_password
       POSTGRES_DB: tutoriais_tarefas_db
     ports:
       - "5435:5432"
+    networks:
+      - default
 volumes:
-  db_data:
+  tutoriais_tarefas_db_data:
     driver: local

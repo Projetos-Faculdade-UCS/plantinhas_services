@@ -62,7 +62,7 @@ THIRD_PARTY_APPS = [
     "corsheaders",
     "storages",
     "django_filters",
-    # "plantinhas_auth_lib",
+    "plantinhas_auth_lib",
     "drf_standardized_errors",
 ]
 
@@ -197,5 +197,12 @@ REST_FRAMEWORK = {
         "djangorestframework_camel_case.parser.CamelCaseMultiPartParser",
         "djangorestframework_camel_case.parser.CamelCaseJSONParser",
     ),
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+        "plantinhas_auth_lib.authenticators.PlantinhasAuthenticator",
+    ],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
 }
 # JSON_CAMEL_CASE = {"RENDERER_CLASS": "drf_ujson.renderers.UJSONRenderer"}

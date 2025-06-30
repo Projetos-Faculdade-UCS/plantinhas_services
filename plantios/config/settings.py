@@ -63,6 +63,7 @@ THIRD_PARTY_APPS = [
     "storages",
     "django_filters",
     "plantinhas_auth_lib",
+    "drf_standardized_errors",
 ]
 
 SELF_APPS = [
@@ -171,3 +172,28 @@ AUTH_SERVICE_TOKEN_URL = env(
     "AUTH_SERVICE_TOKEN_URL", default="http://localhost:8005/auth/api/v1/login/"
 )
 AUTH_BASE_URL = env("AUTH_BASE_URL", default="http://localhost:8005/")
+
+REST_FRAMEWORK = {
+    # other settings
+    "EXCEPTION_HANDLER": "drf_standardized_errors.handler.exception_handler",
+    "DEFAULT_FILTER_BACKENDS": [
+        "django_filters.rest_framework.DjangoFilterBackend",
+    ],
+    "DEFAULT_RENDERER_CLASSES": (
+        "djangorestframework_camel_case.render.CamelCaseJSONRenderer",
+        "djangorestframework_camel_case.render.CamelCaseBrowsableAPIRenderer",
+    ),
+    "DEFAULT_PARSER_CLASSES": (
+        # If you use MultiPartFormParser or FormParser, we also have a camel case version
+        "djangorestframework_camel_case.parser.CamelCaseFormParser",
+        "djangorestframework_camel_case.parser.CamelCaseMultiPartParser",
+        "djangorestframework_camel_case.parser.CamelCaseJSONParser",
+    ),
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+        "plantinhas_auth_lib.authenticators.PlantinhasAuthenticator",
+    ],
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated",
+    ],
+}
