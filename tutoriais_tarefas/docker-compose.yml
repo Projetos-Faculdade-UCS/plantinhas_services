@@ -18,15 +18,15 @@ services:
       - AUTH_SERVICE_TOKEN_URL=http://auth:8000/auth/api/v1/login/
       - AUTH_BASE_URL=http://auth:8000/
     depends_on:
-      - db
+      - tutoriais_tarefas_db
     networks:
       - default
 
-  db:
+  tutoriais_tarefas_db:
     image: postgres:17-alpine
     container_name: tutoriais_tarefas_db
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - tutoriais_tarefas_db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: tutoriais_tarefas_user
       POSTGRES_PASSWORD: tutoriais_tarefas_password
@@ -36,10 +36,5 @@ services:
     networks:
       - default
 volumes:
-  db_data:
+  tutoriais_tarefas_db_data:
     driver: local
-
-networks:
-  default:
-    name: shared-network
-    external: true

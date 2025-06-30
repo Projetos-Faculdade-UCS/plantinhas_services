@@ -18,15 +18,15 @@ services:
       - AUTH_SERVICE_TOKEN_URL=http://auth:8000/auth/api/v1/login/
       - AUTH_BASE_URL=http://auth:8000/
     depends_on:
-      - db
+      - habilidades_db
     networks:
       - default
 
-  db:
+  habilidades_db:
     image: postgres:17-alpine
     container_name: habilidades_db
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - habilidades_db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: habilidades_user
       POSTGRES_PASSWORD: habilidades_password
@@ -36,10 +36,5 @@ services:
     networks:
       - default
 volumes:
-  db_data:
+  habilidades_db_data:
     driver: local
-
-networks:
-  default:
-    name: shared-network
-    external: true

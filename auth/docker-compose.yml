@@ -17,14 +17,14 @@ services:
       - JWT_SIGNING_KEY=-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQC9M9wl9UxmhTts\n7+yLt7A+rfTVWeeWmBu0kza600tOiYwc5g1I7yRVD29x2I0FH1+3MHrYsDfeMcDx\niJ3e3UNlG1Ec64wt0Abo2tObKCFgLeBAgEH7W8t3bsqy69kbFIoFJXaPn/bLWTrY\n+SuG3433Hq+eEivmMjomKZKmFip+xM4KRLd6fng97RRgXe5WQqGIj8Gx9Wcobnp0\nImUofHjXPOnJp8sC5vDKbbrmCmdMJnE5M+1bl+JyHNALdVdNKAetyTJ+GEq1yi6S\nUtOQUFkEM+uEJRRpaArQvpflM9hDsBhTHvhr7AK7fnCsTzl+DL7CPZzIVCwYkxcL\n8+oWXpKtAgMBAAECggEABzmAOgjUWoPS4ZWFxE4G0lXlJ/JvZ+41/J60c8zWrtCM\nw5u7PSI4knDs8f1xYRUyG/YjcrvD3l2q/u4XDSgIx0cUQVTzPNqZMPIOK3oMUDZg\nPkZHfrgiHFTkM5HS7/hITur/zHswutIU760QDu3hZ2LKFPCfsYIQe12SBnqJM97y\nEIRfwFYwtQtHMYha0MudJrmUF4ICJ+61mYkiEVNG+ybV9xLsJ3AZhW/ppPyQyKtE\nhOd41i78ibE3h1mEadiyNkMpvWfMQah5+OXsmJTG7LpQOZgOiNvRdTqcPcPf91me\nLfSCCG4vMj/BSdB6AoxTwPr/bm6TGbma490Ytk8fQQKBgQD1lmqE8J/osq+sf/kT\n6JgA5MnVZNC9uPmsGM7RW/9N08gz/5EMvkhLJorPmoICEkO7Y74Bhy913igVYjjS\nwMTPOJIZR9uCJenYfm6rdxysgOzY2XpfUi/7Qg869BXPXIx6w89/UnT/BfZEUjNH\nCKkQZ3I7tAW1Qkb6SHDU2MsxYQKBgQDFOXJWeYH6ECBHHAdRSG/3GQiw6KAeUQlW\ny/vLmz+ax+/3hmEXIL0InAQoU3B7MjU+yvncUNHr65lazSNgc4SdYPkbGOzfU+fx\nr3ILTRRr3DN83HT86Y7hDuh/1o8nAa1BBilEHZXyU0ertJ2ThhSgDXuYlUCMZCnH\nmqU+Hj0IzQKBgQDkwiWai2EIqlkE/3eN2dytCHAQ/AWMk97NNZaAYYdggWM9PFNq\nYVyJ0+79DlkHgOfihzgXyEqnKjaAJKv1dGZe97zvG4YWpyY56RtBUIQ/EyCLpZhd\nbfsPuirhqTcfnn+kYvzHBpHAc1c/sKnfAuwoQZOglUGz43al8BBZ008CQQKBgQCv\nHVjGK1EbBWKDgQGGTHkNv26WFZbGFFHkfW3u1MPe3JPXBbwDWxA9KroOTDfdSzE3\nteWwlxotDZ22n9o/c5JWYpoMU09O5CNX1t295wyw0G3u+ZfuUDqK3j/V8l5c1gJN\nb/kH//T5mrRSYyZerHh3vED3s94CSZVHI6qAwzySKQKBgH/oFWtiZ1HekeZOr4X+\nw8LgAcpcREeMtU6YoJrGVgLaw5+kGlugx8rquQ6x8Hj1RJI5osKsvpxHXOEweq1Y\nrQ8+v066leBU7Z1n5e7CfXqNaFORcmHCcUvpY75vXGX6vnayodB3dBXEQXPMtJqp\nduZ/1a0ccAyQEZzW4rqN9UHY\n-----END PRIVATE KEY-----\n
       - JWT_VERIFYING_KEY=-----BEGIN PUBLIC KEY-----\nMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvTPcJfVMZoU7bO/si7ew\nPq301VnnlpgbtJM2utNLTomMHOYNSO8kVQ9vcdiNBR9ftzB62LA33jHA8Yid3t1D\nZRtRHOuMLdAG6NrTmyghYC3gQIBB+1vLd27KsuvZGxSKBSV2j5/2y1k62Pkrht+N\n9x6vnhIr5jI6JimSphYqfsTOCkS3en54Pe0UYF3uVkKhiI/BsfVnKG56dCJlKHx4\n1zzpyafLAubwym265gpnTCZxOTPtW5fichzQC3VXTSgHrckyfhhKtcouklLTkFBZ\nBDPrhCUUaWgK0L6X5TPYQ7AYUx74a+wCu35wrE85fgy+wj2cyFQsGJMXC/PqFl6S\nrQIDAQAB\n-----END PUBLIC KEY-----\n
     depends_on:
-      - db
+      - auth_db
     networks:
       - default
-  db:
+  auth_db:
     image: postgres:17-alpine
     container_name: auth_db
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - auth_db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: auth_user
       POSTGRES_PASSWORD: auth_password
@@ -36,11 +36,5 @@ services:
       - default
 
 volumes:
-  db_data:
+  auth_db_data:
     driver: local
-
-
-networks:
-  default:
-    external:
-      name: shared-network

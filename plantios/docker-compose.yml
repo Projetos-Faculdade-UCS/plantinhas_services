@@ -18,15 +18,15 @@ services:
       - AUTH_SERVICE_TOKEN_URL=http://auth:8000/auth/api/v1/login/
       - AUTH_BASE_URL=http://auth:8000/
     depends_on:
-      - db
+      - plantios_db
     networks:
       - default
 
-  db:
+  plantios_db:
     image: postgres:17-alpine
     container_name: plantios_db
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - plantios_db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: plantios_user
       POSTGRES_PASSWORD: plantios_password
@@ -37,10 +37,5 @@ services:
       - default
 
 volumes:
-  db_data:
+  plantios_db_data:
     driver: local
-
-networks:
-  default:
-    name: shared-network
-    external: true

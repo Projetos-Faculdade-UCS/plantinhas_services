@@ -18,14 +18,14 @@ services:
       - AUTH_SERVICE_TOKEN_URL=http://auth:8000/auth/api/v1/login/
       - AUTH_BASE_URL=http://auth:8000/
     depends_on:
-      - db
+      - catalogo_db
     networks:
       - default
-  db:
+  catalogo_db:
     image: postgres:17-alpine
     container_name: catalogo_db
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - catalogo_db_data:/var/lib/postgresql/data
     environment:
       POSTGRES_USER: catalogo_user
       POSTGRES_PASSWORD: catalogo_password
@@ -36,10 +36,5 @@ services:
       - default
 
 volumes:
-  db_data:
+  catalogo_db_data:
     driver: local
-
-networks:
-  default:
-    external:
-      name: shared-network

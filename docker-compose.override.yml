@@ -1,0 +1,25 @@
+# Override file to add auth dependency to all services
+# This file is automatically loaded by docker-compose when present
+
+version: '3.8'
+
+services:
+  catalogo:
+    depends_on:
+      - auth
+      - catalogo_db
+  
+  habilidades:
+    depends_on:
+      - auth
+      - habilidades_db
+  
+  plantios:
+    depends_on:
+      - auth
+      - plantios_db
+  
+  tutoriais_tarefas:
+    depends_on:
+      - auth
+      - tutoriais_tarefas_db
