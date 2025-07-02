@@ -21,14 +21,18 @@ from sentry_sdk.integrations.django import DjangoIntegration
 # Initialize environ
 env = environ.Env(
     # Set default values
-    DEBUG=(bool, False),
-    ALLOWED_HOSTS=(list, []),
+    DEBUG=(bool, True),
+    ALLOWED_HOSTS=(list, ["*"]),
     SECRET_KEY=(
         str,
         "django-insecure-$227hjjmuq2e!)o^@2&#2v#+(-=@$v362o@8g#s9!2)tjn1)1a",
     ),
     GOOGLE_OAUTH_WEB_CLIENT_ID=(str, ""),
     GOOGLE_OAUTH_ALLOWED_DOMAIN=(str, None),
+    JWT_SIGNING_KEY=(str, ""),
+    JWT_VERIFYING_KEY=(str, ""),
+    AUTH_DATABASE_URL=(str, "sqlite:///db.sqlite3"),
+    SENTRY_DSN=(str, None),
 )
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.

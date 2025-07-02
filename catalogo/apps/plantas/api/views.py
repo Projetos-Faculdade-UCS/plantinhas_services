@@ -15,6 +15,7 @@ from apps.plantas.models import Planta
 from django.db.models import QuerySet
 
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
@@ -31,6 +32,9 @@ class CategoriaViewSet(ModelViewSet[Categoria]):
     serializer_class = CategoriaSerializer
     http_method_names = ["get"]
     pagination_class = CustomPagination
+    permission_classes = [
+        IsAuthenticated,
+    ]
 
     def get_serializer_class(self):  # type: ignore
         """Return different serializers for list and detail views."""
@@ -68,7 +72,7 @@ class PlantaViewSet(ModelViewSet[Planta]):
     queryset = Planta.objects.all().order_by("nome")
     serializer_class = PlantaSerializer
     pagination_class = PlantaPagination
-    http_method_names = ["get"]
+    http_method_names = ["get", "post"]
     filterset_class = PlantaFilter
     filter_backends = [DjangoFilterBackend]
 

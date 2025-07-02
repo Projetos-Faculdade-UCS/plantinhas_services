@@ -1,1706 +1,1911 @@
 [
-    {
-        "model": "plantas.categoria",
-        "pk": 1,
-        "fields": {
-            "nome": "Ornamentais",
-            "descricao": "Plantas que são ornamentais"
-        }
-    },
-    {
-        "model": "plantas.categoria",
-        "pk": 2,
-        "fields": {
-            "nome": "Medicinais",
-            "descricao": "Curam até mal olhado"
-        }
-    },
-    {
-        "model": "plantas.categoria",
-        "pk": 3,
-        "fields": {
-            "nome": "Frutiferas",
-            "descricao": "Várias frutas"
-        }
-    },
-    {
-        "model": "plantas.categoria",
-        "pk": 4,
-        "fields": {
-            "nome": "Hortaliças",
-            "descricao": "Vêm da horta"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 134,
-        "fields": {
-            "nome": "Rosa",
-            "nome_cientifico": "Rosa gallica",
-            "foto": "plantas/rosa.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 60,
-            "categoria": 1,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 135,
-        "fields": {
-            "nome": "Lírio",
-            "nome_cientifico": "Lilium candidum",
-            "foto": "plantas/lirio.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Úmido bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "5.00",
-            "temperatura_ideal": "15.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 90,
-            "categoria": 1,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 136,
-        "fields": {
-            "nome": "Tulipa",
-            "nome_cientifico": "Tulipa gesneriana",
-            "foto": "plantas/tulipa.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "0.00",
-            "temperatura_ideal": "10.00",
-            "temperatura_maxima": "20.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 120,
-            "categoria": 1,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 137,
-        "fields": {
-            "nome": "Orquídea",
-            "nome_cientifico": "Orchidaceae phalaenopsis",
-            "foto": "plantas/orquidea.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Substrato especial",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "18.00",
-            "temperatura_ideal": "25.00",
-            "temperatura_maxima": "32.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 365,
-            "categoria": 1,
-            "dificuldade": "4.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 138,
-        "fields": {
-            "nome": "Girassol",
-            "nome_cientifico": "Helianthus annuus",
-            "foto": "plantas/girassol.jpeg",
-            "horas_sol": "8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "20.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 80,
-            "categoria": 1,
-            "dificuldade": "1.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 139,
-        "fields": {
-            "nome": "Violeta",
-            "nome_cientifico": "Viola odorata",
-            "foto": "plantas/violeta.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Úmido",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "15.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 45,
-            "categoria": 1,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 140,
-        "fields": {
-            "nome": "Begônia",
-            "nome_cientifico": "Begonia semperflorens",
-            "foto": "plantas/begonia.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Úmido bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "22.00",
-            "temperatura_maxima": "28.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 70,
-            "categoria": 1,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 141,
-        "fields": {
-            "nome": "Petúnia",
-            "nome_cientifico": "Petunia × atkinsiana",
-            "foto": "plantas/petunia.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "28.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 65,
-            "categoria": 1,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 142,
-        "fields": {
-            "nome": "Gérbera",
-            "nome_cientifico": "Gerbera jamesonii",
-            "foto": "plantas/gerbera.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "12.00",
-            "temperatura_ideal": "20.00",
-            "temperatura_maxima": "26.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 90,
-            "categoria": 1,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 143,
-        "fields": {
-            "nome": "Azaleia",
-            "nome_cientifico": "Rhododendron simsii",
-            "foto": "plantas/azaleia.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Ácido",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "24.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 120,
-            "categoria": 1,
-            "dificuldade": "3.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 144,
-        "fields": {
-            "nome": "Crisântemo",
-            "nome_cientifico": "Chrysanthemum morifolium",
-            "foto": "plantas/crisantemo.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "8.00",
-            "temperatura_ideal": "16.00",
-            "temperatura_maxima": "24.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 100,
-            "categoria": 1,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 145,
-        "fields": {
-            "nome": "Hibisco",
-            "nome_cientifico": "Hibiscus rosa-sinensis",
-            "foto": "plantas/hibisco.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Úmido bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "18.00",
-            "temperatura_ideal": "25.00",
-            "temperatura_maxima": "35.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 90,
-            "categoria": 1,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 146,
-        "fields": {
-            "nome": "Antúrio",
-            "nome_cientifico": "Anthurium andraeanum",
-            "foto": "plantas/anturio.jpeg",
-            "horas_sol": "4",
-            "solo_ideal": "Úmido",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "20.00",
-            "temperatura_ideal": "25.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 180,
-            "categoria": 1,
-            "dificuldade": "4.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 147,
-        "fields": {
-            "nome": "Camélia",
-            "nome_cientifico": "Camellia japonica",
-            "foto": "plantas/camelia.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Ácido úmido",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "5.00",
-            "temperatura_ideal": "15.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 150,
-            "categoria": 1,
-            "dificuldade": "3.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 148,
-        "fields": {
-            "nome": "Bromélia",
-            "nome_cientifico": "Bromeliaceae guzmania",
-            "foto": "plantas/bromelia.jpeg",
-            "horas_sol": "4",
-            "solo_ideal": "Úmido",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "18.00",
-            "temperatura_ideal": "24.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 200,
-            "categoria": 1,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 149,
-        "fields": {
-            "nome": "Kalanchoe",
-            "nome_cientifico": "Kalanchoe blossfeldiana",
-            "foto": "plantas/kalanchoe.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "22.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 60,
-            "categoria": 1,
-            "dificuldade": "1.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 150,
-        "fields": {
-            "nome": "Impatiens",
-            "nome_cientifico": "Impatiens walleriana",
-            "foto": "plantas/impatiens.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Úmido",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "20.00",
-            "temperatura_maxima": "28.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 75,
-            "categoria": 1,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 151,
-        "fields": {
-            "nome": "Dália",
-            "nome_cientifico": "Dahlia pinnata",
-            "foto": "plantas/dalia.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Rico bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "28.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 120,
-            "categoria": 1,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 152,
-        "fields": {
-            "nome": "Primavera",
-            "nome_cientifico": "Bougainvillea spectabilis",
-            "foto": "plantas/primavera.jpeg",
-            "horas_sol": "8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "25.00",
-            "temperatura_maxima": "35.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 90,
-            "categoria": 1,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 153,
-        "fields": {
-            "nome": "Jasmim",
-            "nome_cientifico": "Jasminum officinale",
-            "foto": "plantas/jasmim.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "20.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 120,
-            "categoria": 1,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 154,
-        "fields": {
-            "nome": "Gardênia",
-            "nome_cientifico": "Gardenia jasminoides",
-            "foto": "plantas/gardenia.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Ácido úmido",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "22.00",
-            "temperatura_maxima": "28.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 150,
-            "categoria": 1,
-            "dificuldade": "4.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 155,
-        "fields": {
-            "nome": "Lavanda",
-            "nome_cientifico": "Lavandula angustifolia",
-            "foto": "plantas/lavanda.jpeg",
-            "horas_sol": "8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "5.00",
-            "temperatura_ideal": "15.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 90,
-            "categoria": 1,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 156,
-        "fields": {
-            "nome": "Aloe Vera",
-            "nome_cientifico": "Aloe vera",
-            "foto": "plantas/aloe_vera.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "25.00",
-            "temperatura_maxima": "35.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 120,
-            "categoria": 2,
-            "dificuldade": "1.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 157,
-        "fields": {
-            "nome": "Camomila",
-            "nome_cientifico": "Matricaria chamomilla",
-            "foto": "plantas/camomila.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 65,
-            "categoria": 2,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 158,
-        "fields": {
-            "nome": "Erva-cidreira",
-            "nome_cientifico": "Melissa officinalis",
-            "foto": "plantas/erva_cidreira.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Úmido",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "20.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 60,
-            "categoria": 2,
-            "dificuldade": "1.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 159,
-        "fields": {
-            "nome": "Hortelã",
-            "nome_cientifico": "Mentha piperita",
-            "foto": "plantas/hortela.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Úmido",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "20.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 45,
-            "categoria": 2,
-            "dificuldade": "1.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 160,
-        "fields": {
-            "nome": "Boldo",
-            "nome_cientifico": "Peumus boldus",
-            "foto": "plantas/boldo.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 180,
-            "categoria": 2,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 161,
-        "fields": {
-            "nome": "Calendula",
-            "nome_cientifico": "Calendula officinalis",
-            "foto": "plantas/calendula.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "5.00",
-            "temperatura_ideal": "15.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 70,
-            "categoria": 2,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 162,
-        "fields": {
-            "nome": "Eucalipto",
-            "nome_cientifico": "Eucalyptus globulus",
-            "foto": "plantas/eucalipto.jpeg",
-            "horas_sol": "8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "20.00",
-            "temperatura_maxima": "35.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 365,
-            "categoria": 2,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 163,
-        "fields": {
-            "nome": "Guaco",
-            "nome_cientifico": "Mikania glomerata",
-            "foto": "plantas/guaco.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Úmido",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "25.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 120,
-            "categoria": 2,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 164,
-        "fields": {
-            "nome": "Espinheira-santa",
-            "nome_cientifico": "Maytenus ilicifolia",
-            "foto": "plantas/espinheira_santa.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "20.00",
-            "temperatura_maxima": "28.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 180,
-            "categoria": 2,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 165,
-        "fields": {
-            "nome": "Quebra-pedra",
-            "nome_cientifico": "Phyllanthus niruri",
-            "foto": "plantas/quebra_pedra.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Úmido bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "18.00",
-            "temperatura_ideal": "25.00",
-            "temperatura_maxima": "32.00",
-            "estacao_plantio": "Verão",
-            "dias_maturidade": 90,
-            "categoria": 2,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 166,
-        "fields": {
-            "nome": "Malva",
-            "nome_cientifico": "Malva sylvestris",
-            "foto": "plantas/malva.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "8.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "28.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 80,
-            "categoria": 2,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 167,
-        "fields": {
-            "nome": "Babosa",
-            "nome_cientifico": "Aloe arborescens",
-            "foto": "plantas/babosa.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "12.00",
-            "temperatura_ideal": "22.00",
-            "temperatura_maxima": "35.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 150,
-            "categoria": 2,
-            "dificuldade": "1.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 168,
-        "fields": {
-            "nome": "Capim-limão",
-            "nome_cientifico": "Cymbopogon citratus",
-            "foto": "plantas/capim_limao.jpeg",
-            "horas_sol": "8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "25.00",
-            "temperatura_maxima": "35.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 90,
-            "categoria": 2,
-            "dificuldade": "1.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 169,
-        "fields": {
-            "nome": "Carqueja",
-            "nome_cientifico": "Baccharis trimera",
-            "foto": "plantas/carqueja.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "5.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 120,
-            "categoria": 2,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 170,
-        "fields": {
-            "nome": "Alecrim",
-            "nome_cientifico": "Rosmarinus officinalis",
-            "foto": "plantas/alecrim.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "8.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 90,
-            "categoria": 2,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 171,
-        "fields": {
-            "nome": "Sálvia",
-            "nome_cientifico": "Salvia officinalis",
-            "foto": "plantas/salvia.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "20.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 75,
-            "categoria": 2,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 172,
-        "fields": {
-            "nome": "Tomilho",
-            "nome_cientifico": "Thymus vulgaris",
-            "foto": "plantas/tomilho.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "5.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "28.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 80,
-            "categoria": 2,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 173,
-        "fields": {
-            "nome": "Erva-doce",
-            "nome_cientifico": "Foeniculum vulgare",
-            "foto": "plantas/erva_doce.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "20.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 90,
-            "categoria": 2,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 174,
-        "fields": {
-            "nome": "Manjericão",
-            "nome_cientifico": "Ocimum basilicum",
-            "foto": "plantas/manjericao.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Úmido bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "22.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 60,
-            "categoria": 2,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 175,
-        "fields": {
-            "nome": "Capuchinha",
-            "nome_cientifico": "Tropaeolum majus",
-            "foto": "plantas/capuchinha.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "28.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 55,
-            "categoria": 2,
-            "dificuldade": "1.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 176,
-        "fields": {
-            "nome": "Arnica",
-            "nome_cientifico": "Arnica montana",
-            "foto": "plantas/arnica.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Úmido bem drenado",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "5.00",
-            "temperatura_ideal": "15.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 120,
-            "categoria": 2,
-            "dificuldade": "3.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 177,
-        "fields": {
-            "nome": "Ginseng",
-            "nome_cientifico": "Panax ginseng",
-            "foto": "plantas/ginseng.jpeg",
-            "horas_sol": "2-4",
-            "solo_ideal": "Rico úmido",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 1825,
-            "categoria": 2,
-            "dificuldade": "5.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 178,
-        "fields": {
-            "nome": "Morango",
-            "nome_cientifico": "Fragaria × ananassa",
-            "foto": "plantas/morango.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Úmido bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "20.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Verão",
-            "dias_maturidade": 60,
-            "categoria": 3,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 179,
-        "fields": {
-            "nome": "Tomate",
-            "nome_cientifico": "Solanum lycopersicum",
-            "foto": "plantas/tomate.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Rico bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "22.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 80,
-            "categoria": 3,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 180,
-        "fields": {
-            "nome": "Pimentão",
-            "nome_cientifico": "Capsicum annuum",
-            "foto": "plantas/pimentao.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Rico bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "18.00",
-            "temperatura_ideal": "25.00",
-            "temperatura_maxima": "32.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 90,
-            "categoria": 3,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 181,
-        "fields": {
-            "nome": "Berinjela",
-            "nome_cientifico": "Solanum melongena",
-            "foto": "plantas/berinjela.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Rico úmido",
-            "ventilacao": "Média",
-            "temperatura_minima": "20.00",
-            "temperatura_ideal": "25.00",
-            "temperatura_maxima": "35.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 100,
-            "categoria": 3,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 182,
-        "fields": {
-            "nome": "Abobrinha",
-            "nome_cientifico": "Cucurbita pepo",
-            "foto": "plantas/abobrinha.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Rico úmido",
-            "ventilacao": "Alta",
-            "temperatura_minima": "18.00",
-            "temperatura_ideal": "24.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 70,
-            "categoria": 3,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 183,
-        "fields": {
-            "nome": "Pepino",
-            "nome_cientifico": "Cucumis sativus",
-            "foto": "plantas/pepino.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Úmido bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "18.00",
-            "temperatura_ideal": "24.00",
-            "temperatura_maxima": "32.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 65,
-            "categoria": 3,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 184,
-        "fields": {
-            "nome": "Melancia",
-            "nome_cientifico": "Citrullus lanatus",
-            "foto": "plantas/melancia.jpeg",
-            "horas_sol": "8",
-            "solo_ideal": "Rico bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "20.00",
-            "temperatura_ideal": "26.00",
-            "temperatura_maxima": "35.00",
-            "estacao_plantio": "Verão",
-            "dias_maturidade": 90,
-            "categoria": 3,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 185,
-        "fields": {
-            "nome": "Melão",
-            "nome_cientifico": "Cucumis melo",
-            "foto": "plantas/melao.jpeg",
-            "horas_sol": "8",
-            "solo_ideal": "Rico bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "18.00",
-            "temperatura_ideal": "25.00",
-            "temperatura_maxima": "32.00",
-            "estacao_plantio": "Verão",
-            "dias_maturidade": 85,
-            "categoria": 3,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 186,
-        "fields": {
-            "nome": "Maracujá",
-            "nome_cientifico": "Passiflora edulis",
-            "foto": "plantas/maracuja.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "18.00",
-            "temperatura_ideal": "25.00",
-            "temperatura_maxima": "35.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 180,
-            "categoria": 3,
-            "dificuldade": "3.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 187,
-        "fields": {
-            "nome": "Goiaba",
-            "nome_cientifico": "Psidium guajava",
-            "foto": "plantas/goiaba.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "18.00",
-            "temperatura_ideal": "26.00",
-            "temperatura_maxima": "35.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 365,
-            "categoria": 3,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 188,
-        "fields": {
-            "nome": "Manga",
-            "nome_cientifico": "Mangifera indica",
-            "foto": "plantas/manga.jpeg",
-            "horas_sol": "8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "20.00",
-            "temperatura_ideal": "28.00",
-            "temperatura_maxima": "38.00",
-            "estacao_plantio": "Verão",
-            "dias_maturidade": 1095,
-            "categoria": 3,
-            "dificuldade": "4.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 189,
-        "fields": {
-            "nome": "Abacate",
-            "nome_cientifico": "Persea americana",
-            "foto": "plantas/abacate.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Rico bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "24.00",
-            "temperatura_maxima": "32.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 730,
-            "categoria": 3,
-            "dificuldade": "3.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 190,
-        "fields": {
-            "nome": "Limão",
-            "nome_cientifico": "Citrus limon",
-            "foto": "plantas/limao.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "22.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 365,
-            "categoria": 3,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 191,
-        "fields": {
-            "nome": "Laranja",
-            "nome_cientifico": "Citrus sinensis",
-            "foto": "plantas/laranja.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "12.00",
-            "temperatura_ideal": "22.00",
-            "temperatura_maxima": "32.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 365,
-            "categoria": 3,
-            "dificuldade": "3.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 192,
-        "fields": {
-            "nome": "Banana",
-            "nome_cientifico": "Musa acuminata",
-            "foto": "plantas/banana.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Rico úmido",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "20.00",
-            "temperatura_ideal": "27.00",
-            "temperatura_maxima": "35.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 365,
-            "categoria": 3,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 193,
-        "fields": {
-            "nome": "Mamão",
-            "nome_cientifico": "Carica papaya",
-            "foto": "plantas/mamao.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Rico bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "18.00",
-            "temperatura_ideal": "26.00",
-            "temperatura_maxima": "35.00",
-            "estacao_plantio": "Primavera",
-            "dias_maturidade": 180,
-            "categoria": 3,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 194,
-        "fields": {
-            "nome": "Uva",
-            "nome_cientifico": "Vitis vinifera",
-            "foto": "plantas/uva.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Alta",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "20.00",
-            "temperatura_maxima": "30.00",
-            "estacao_plantio": "Inverno",
-            "dias_maturidade": 730,
-            "categoria": 3,
-            "dificuldade": "4.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 195,
-        "fields": {
-            "nome": "Pêssego",
-            "nome_cientifico": "Prunus persica",
-            "foto": "plantas/pessego.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "5.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "28.00",
-            "estacao_plantio": "Inverno",
-            "dias_maturidade": 365,
-            "categoria": 3,
-            "dificuldade": "3.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 196,
-        "fields": {
-            "nome": "Ameixa",
-            "nome_cientifico": "Prunus domestica",
-            "foto": "plantas/ameixa.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "0.00",
-            "temperatura_ideal": "15.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Inverno",
-            "dias_maturidade": 365,
-            "categoria": 3,
-            "dificuldade": "3.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 197,
-        "fields": {
-            "nome": "Figo",
-            "nome_cientifico": "Ficus carica",
-            "foto": "plantas/figo.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "22.00",
-            "temperatura_maxima": "32.00",
-            "estacao_plantio": "Inverno",
-            "dias_maturidade": 365,
-            "categoria": 3,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 198,
-        "fields": {
-            "nome": "Caqui",
-            "nome_cientifico": "Diospyros kaki",
-            "foto": "plantas/caqui.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "5.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "28.00",
-            "estacao_plantio": "Inverno",
-            "dias_maturidade": 365,
-            "categoria": 3,
-            "dificuldade": "3.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 199,
-        "fields": {
-            "nome": "Jabuticaba",
-            "nome_cientifico": "Plinia cauliflora",
-            "foto": "plantas/jabuticaba.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Rico úmido",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "15.00",
-            "temperatura_ideal": "24.00",
-            "temperatura_maxima": "32.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 1095,
-            "categoria": 3,
-            "dificuldade": "4.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 200,
-        "fields": {
-            "nome": "Alface",
-            "nome_cientifico": "Lactuca sativa",
-            "foto": "plantas/alface.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Rico úmido",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 45,
-            "categoria": 4,
-            "dificuldade": "1.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 201,
-        "fields": {
-            "nome": "Rúcula",
-            "nome_cientifico": "Eruca sativa",
-            "foto": "plantas/rucula.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "8.00",
-            "temperatura_ideal": "16.00",
-            "temperatura_maxima": "24.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 30,
-            "categoria": 4,
-            "dificuldade": "1.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 202,
-        "fields": {
-            "nome": "Espinafre",
-            "nome_cientifico": "Spinacia oleracea",
-            "foto": "plantas/espinafre.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Rico úmido",
-            "ventilacao": "Média",
-            "temperatura_minima": "5.00",
-            "temperatura_ideal": "15.00",
-            "temperatura_maxima": "22.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 50,
-            "categoria": 4,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 203,
-        "fields": {
-            "nome": "Couve",
-            "nome_cientifico": "Brassica oleracea",
-            "foto": "plantas/couve.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Rico bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 60,
-            "categoria": 4,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 204,
-        "fields": {
-            "nome": "Brócolis",
-            "nome_cientifico": "Brassica oleracea italica",
-            "foto": "plantas/brocolis.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Rico bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "24.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 90,
-            "categoria": 4,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 205,
-        "fields": {
-            "nome": "Couve-flor",
-            "nome_cientifico": "Brassica oleracea botrytis",
-            "foto": "plantas/couve_flor.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Rico bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "8.00",
-            "temperatura_ideal": "16.00",
-            "temperatura_maxima": "22.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 100,
-            "categoria": 4,
-            "dificuldade": "3.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 206,
-        "fields": {
-            "nome": "Repolho",
-            "nome_cientifico": "Brassica oleracea capitata",
-            "foto": "plantas/repolho.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Rico bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "24.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 90,
-            "categoria": 4,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 207,
-        "fields": {
-            "nome": "Cenoura",
-            "nome_cientifico": "Daucus carota",
-            "foto": "plantas/cenoura.jpeg",
-            "horas_sol": "6",
-            "solo_ideal": "Profundo solto",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 90,
-            "categoria": 4,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 208,
-        "fields": {
-            "nome": "Beterraba",
-            "nome_cientifico": "Beta vulgaris",
-            "foto": "plantas/beterraba.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Rico bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "8.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "26.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 70,
-            "categoria": 4,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 209,
-        "fields": {
-            "nome": "Rabanete",
-            "nome_cientifico": "Raphanus sativus",
-            "foto": "plantas/rabanete.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Solto bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 30,
-            "categoria": 4,
-            "dificuldade": "1.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 210,
-        "fields": {
-            "nome": "Nabo",
-            "nome_cientifico": "Brassica rapa",
-            "foto": "plantas/nabo.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Rico bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "8.00",
-            "temperatura_ideal": "16.00",
-            "temperatura_maxima": "24.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 60,
-            "categoria": 4,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 211,
-        "fields": {
-            "nome": "Cebola",
-            "nome_cientifico": "Allium cepa",
-            "foto": "plantas/cebola.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "20.00",
-            "temperatura_maxima": "28.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 120,
-            "categoria": 4,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 212,
-        "fields": {
-            "nome": "Alho",
-            "nome_cientifico": "Allium sativum",
-            "foto": "plantas/alho.jpeg",
-            "horas_sol": "6-8",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "5.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 180,
-            "categoria": 4,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 213,
-        "fields": {
-            "nome": "Alho-poró",
-            "nome_cientifico": "Allium porrum",
-            "foto": "plantas/alho_poro.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Rico úmido",
-            "ventilacao": "Média",
-            "temperatura_minima": "8.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 120,
-            "categoria": 4,
-            "dificuldade": "3.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 214,
-        "fields": {
-            "nome": "Aipo",
-            "nome_cientifico": "Apium graveolens",
-            "foto": "plantas/aipo.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Rico úmido",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "24.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 120,
-            "categoria": 4,
-            "dificuldade": "3.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 215,
-        "fields": {
-            "nome": "Salsão",
-            "nome_cientifico": "Apium graveolens dulce",
-            "foto": "plantas/salsao.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Rico úmido",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "12.00",
-            "temperatura_ideal": "20.00",
-            "temperatura_maxima": "26.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 100,
-            "categoria": 4,
-            "dificuldade": "3.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 216,
-        "fields": {
-            "nome": "Chicória",
-            "nome_cientifico": "Cichorium intybusa",
-            "foto": "plantas/chicoria.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "8.00",
-            "temperatura_ideal": "16.00",
-            "temperatura_maxima": "24.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 80,
-            "categoria": 4,
-            "dificuldade": "2.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 217,
-        "fields": {
-            "nome": "Agrião",
-            "nome_cientifico": "Nasturtium officinale",
-            "foto": "plantas/agriao.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Encharcado",
-            "ventilacao": "Baixa",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "16.00",
-            "temperatura_maxima": "22.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 45,
-            "categoria": 4,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 218,
-        "fields": {
-            "nome": "Mostarda",
-            "nome_cientifico": "Brassica juncea",
-            "foto": "plantas/mostarda.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "25.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 40,
-            "categoria": 4,
-            "dificuldade": "1.5"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 219,
-        "fields": {
-            "nome": "Acelga",
-            "nome_cientifico": "Beta vulgaris cicla",
-            "foto": "plantas/acelga.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Rico úmido",
-            "ventilacao": "Média",
-            "temperatura_minima": "10.00",
-            "temperatura_ideal": "18.00",
-            "temperatura_maxima": "26.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 60,
-            "categoria": 4,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 220,
-        "fields": {
-            "nome": "Almeirão",
-            "nome_cientifico": "Cichorium intybuse",
-            "foto": "plantas/almeirao.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "8.00",
-            "temperatura_ideal": "16.00",
-            "temperatura_maxima": "24.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 70,
-            "categoria": 4,
-            "dificuldade": "2.0"
-        }
-    },
-    {
-        "model": "plantas.planta",
-        "pk": 221,
-        "fields": {
-            "nome": "Catalonha",
-            "nome_cientifico": "Cichorium intybuso foliosum",
-            "foto": "plantas/catalonha.jpeg",
-            "horas_sol": "4-6",
-            "solo_ideal": "Rico bem drenado",
-            "ventilacao": "Média",
-            "temperatura_minima": "8.00",
-            "temperatura_ideal": "16.00",
-            "temperatura_maxima": "22.00",
-            "estacao_plantio": "Outono",
-            "dias_maturidade": 80,
-            "categoria": 4,
-            "dificuldade": "2.5"
-        }
+{
+    "model": "plantas.categoria",
+    "pk": 1,
+    "fields": {
+        "nome": "Ornamentais",
+        "descricao": "Plantas que são ornamentais"
     }
+},
+{
+    "model": "plantas.categoria",
+    "pk": 2,
+    "fields": {
+        "nome": "Medicinais",
+        "descricao": "Curam até mal olhado"
+    }
+},
+{
+    "model": "plantas.categoria",
+    "pk": 3,
+    "fields": {
+        "nome": "Frutiferas",
+        "descricao": "Várias frutas"
+    }
+},
+{
+    "model": "plantas.categoria",
+    "pk": 4,
+    "fields": {
+        "nome": "Hortaliças",
+        "descricao": "Vêm da horta"
+    }
+},
+{
+    "model": "plantas.subcategoria",
+    "pk": 1,
+    "fields": {
+        "nome": "Flores",
+        "descricao": "Flores ornamentais",
+        "categoria_pai": 1
+    }
+},
+{
+    "model": "plantas.subcategoria",
+    "pk": 2,
+    "fields": {
+        "nome": "Ervas",
+        "descricao": "Ervas medicinais",
+        "categoria_pai": 2
+    }
+},
+{
+    "model": "plantas.subcategoria",
+    "pk": 3,
+    "fields": {
+        "nome": "Árvores Frutíferas",
+        "descricao": "Árvores que dão frutas",
+        "categoria_pai": 3
+    }
+},
+{
+    "model": "plantas.subcategoria",
+    "pk": 4,
+    "fields": {
+        "nome": "Verduras",
+        "descricao": "Verduras da horta",
+        "categoria_pai": 4
+    }
+},
+{
+    "model": "plantas.subcategoria",
+    "pk": 5,
+    "fields": {
+        "nome": "Cactos",
+        "descricao": "Cactos decorativos",
+        "categoria_pai": 1
+    }
+},
+{
+    "model": "plantas.subcategoria",
+    "pk": 6,
+    "fields": {
+        "nome": "Suculentas",
+        "descricao": "Suculentas para decoração",
+        "categoria_pai": 1
+    }
+},
+{
+    "model": "plantas.subcategoria",
+    "pk": 7,
+    "fields": {
+        "nome": "Chás",
+        "descricao": "Plantas usadas em chás medicinais",
+        "categoria_pai": 2
+    }
+},
+{
+    "model": "plantas.subcategoria",
+    "pk": 8,
+    "fields": {
+        "nome": "Oleaginosas Medicinais",
+        "descricao": "Plantas que produzem óleos com propriedades medicinais",
+        "categoria_pai": 2
+    }
+},
+{
+    "model": "plantas.subcategoria",
+    "pk": 9,
+    "fields": {
+        "nome": "Cítricas",
+        "descricao": "Frutas como laranja, limão e tangerina",
+        "categoria_pai": 3
+    }
+},
+{
+    "model": "plantas.subcategoria",
+    "pk": 10,
+    "fields": {
+        "nome": "Tropicais",
+        "descricao": "Frutas típicas do clima tropical como manga e abacaxi",
+        "categoria_pai": 3
+    }
+},
+{
+    "model": "plantas.subcategoria",
+    "pk": 11,
+    "fields": {
+        "nome": "Legumes",
+        "descricao": "Legumes como cenoura, beterraba e nabo",
+        "categoria_pai": 4
+    }
+},
+{
+    "model": "plantas.subcategoria",
+    "pk": 12,
+    "fields": {
+        "nome": "Temperos",
+        "descricao": "Plantas da horta usadas para temperar alimentos, como cebolinha e salsinha",
+        "categoria_pai": 4
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 134,
+    "fields": {
+        "nome": "Rosa",
+        "nome_cientifico": "Rosa gallica",
+        "foto": "plantas/rosa.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 60,
+        "categoria": 1,
+        "dificuldade": "3.0",
+        "subcategorias": [
+            1
+        ]
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 135,
+    "fields": {
+        "nome": "Lírio",
+        "nome_cientifico": "Lilium candidum",
+        "foto": "plantas/lirio.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Úmido bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "5.00",
+        "temperatura_ideal": "15.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 90,
+        "categoria": 1,
+        "dificuldade": "2.5",
+        "subcategorias": [
+            1
+        ]
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 136,
+    "fields": {
+        "nome": "Tulipa",
+        "nome_cientifico": "Tulipa gesneriana",
+        "foto": "plantas/tulipa.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "0.00",
+        "temperatura_ideal": "10.00",
+        "temperatura_maxima": "20.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 120,
+        "categoria": 1,
+        "dificuldade": "2.0",
+        "subcategorias": [
+            1
+        ]
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 137,
+    "fields": {
+        "nome": "Orquídea",
+        "nome_cientifico": "Orchidaceae phalaenopsis",
+        "foto": "plantas/orquidea.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Substrato especial",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "18.00",
+        "temperatura_ideal": "25.00",
+        "temperatura_maxima": "32.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 365,
+        "categoria": 1,
+        "dificuldade": "4.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 138,
+    "fields": {
+        "nome": "Girassol",
+        "nome_cientifico": "Helianthus annuus",
+        "foto": "plantas/girassol.jpeg",
+        "horas_sol": "8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "20.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 80,
+        "categoria": 1,
+        "dificuldade": "1.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 139,
+    "fields": {
+        "nome": "Violeta",
+        "nome_cientifico": "Viola odorata",
+        "foto": "plantas/violeta.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Úmido",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "15.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 45,
+        "categoria": 1,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 140,
+    "fields": {
+        "nome": "Begônia",
+        "nome_cientifico": "Begonia semperflorens",
+        "foto": "plantas/begonia.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Úmido bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "22.00",
+        "temperatura_maxima": "28.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 70,
+        "categoria": 1,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 141,
+    "fields": {
+        "nome": "Petúnia",
+        "nome_cientifico": "Petunia × atkinsiana",
+        "foto": "plantas/petunia.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "28.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 65,
+        "categoria": 1,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 142,
+    "fields": {
+        "nome": "Gérbera",
+        "nome_cientifico": "Gerbera jamesonii",
+        "foto": "plantas/gerbera.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "12.00",
+        "temperatura_ideal": "20.00",
+        "temperatura_maxima": "26.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 90,
+        "categoria": 1,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 143,
+    "fields": {
+        "nome": "Azaleia",
+        "nome_cientifico": "Rhododendron simsii",
+        "foto": "plantas/azaleia.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Ácido",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "24.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 120,
+        "categoria": 1,
+        "dificuldade": "3.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 144,
+    "fields": {
+        "nome": "Crisântemo",
+        "nome_cientifico": "Chrysanthemum morifolium",
+        "foto": "plantas/crisantemo.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "8.00",
+        "temperatura_ideal": "16.00",
+        "temperatura_maxima": "24.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 100,
+        "categoria": 1,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 145,
+    "fields": {
+        "nome": "Hibisco",
+        "nome_cientifico": "Hibiscus rosa-sinensis",
+        "foto": "plantas/hibisco.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Úmido bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "18.00",
+        "temperatura_ideal": "25.00",
+        "temperatura_maxima": "35.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 90,
+        "categoria": 1,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 146,
+    "fields": {
+        "nome": "Antúrio",
+        "nome_cientifico": "Anthurium andraeanum",
+        "foto": "plantas/anturio.jpeg",
+        "horas_sol": "4",
+        "solo_ideal": "Úmido",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "20.00",
+        "temperatura_ideal": "25.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 180,
+        "categoria": 1,
+        "dificuldade": "4.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 147,
+    "fields": {
+        "nome": "Camélia",
+        "nome_cientifico": "Camellia japonica",
+        "foto": "plantas/camelia.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Ácido úmido",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "5.00",
+        "temperatura_ideal": "15.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 150,
+        "categoria": 1,
+        "dificuldade": "3.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 148,
+    "fields": {
+        "nome": "Bromélia",
+        "nome_cientifico": "Bromeliaceae guzmania",
+        "foto": "plantas/bromelia.jpeg",
+        "horas_sol": "4",
+        "solo_ideal": "Úmido",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "18.00",
+        "temperatura_ideal": "24.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 200,
+        "categoria": 1,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 149,
+    "fields": {
+        "nome": "Kalanchoe",
+        "nome_cientifico": "Kalanchoe blossfeldiana",
+        "foto": "plantas/kalanchoe.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "22.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 60,
+        "categoria": 1,
+        "dificuldade": "1.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 150,
+    "fields": {
+        "nome": "Impatiens",
+        "nome_cientifico": "Impatiens walleriana",
+        "foto": "plantas/impatiens.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Úmido",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "20.00",
+        "temperatura_maxima": "28.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 75,
+        "categoria": 1,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 151,
+    "fields": {
+        "nome": "Dália",
+        "nome_cientifico": "Dahlia pinnata",
+        "foto": "plantas/dalia.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Rico bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "28.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 120,
+        "categoria": 1,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 152,
+    "fields": {
+        "nome": "Primavera",
+        "nome_cientifico": "Bougainvillea spectabilis",
+        "foto": "plantas/primavera.jpeg",
+        "horas_sol": "8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "25.00",
+        "temperatura_maxima": "35.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 90,
+        "categoria": 1,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 153,
+    "fields": {
+        "nome": "Jasmim",
+        "nome_cientifico": "Jasminum officinale",
+        "foto": "plantas/jasmim.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "20.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 120,
+        "categoria": 1,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 154,
+    "fields": {
+        "nome": "Gardênia",
+        "nome_cientifico": "Gardenia jasminoides",
+        "foto": "plantas/gardenia.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Ácido úmido",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "22.00",
+        "temperatura_maxima": "28.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 150,
+        "categoria": 1,
+        "dificuldade": "4.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 155,
+    "fields": {
+        "nome": "Lavanda",
+        "nome_cientifico": "Lavandula angustifolia",
+        "foto": "plantas/lavanda.jpeg",
+        "horas_sol": "8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "5.00",
+        "temperatura_ideal": "15.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 90,
+        "categoria": 1,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 156,
+    "fields": {
+        "nome": "Aloe Vera",
+        "nome_cientifico": "Aloe vera",
+        "foto": "plantas/aloe_vera.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "25.00",
+        "temperatura_maxima": "35.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 120,
+        "categoria": 2,
+        "dificuldade": "1.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 157,
+    "fields": {
+        "nome": "Camomila",
+        "nome_cientifico": "Matricaria chamomilla",
+        "foto": "plantas/camomila.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 65,
+        "categoria": 2,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 158,
+    "fields": {
+        "nome": "Erva-cidreira",
+        "nome_cientifico": "Melissa officinalis",
+        "foto": "plantas/erva_cidreira.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Úmido",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "20.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 60,
+        "categoria": 2,
+        "dificuldade": "1.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 159,
+    "fields": {
+        "nome": "Hortelã",
+        "nome_cientifico": "Mentha piperita",
+        "foto": "plantas/hortela_U9B9KFA.png",
+        "horas_sol": "4-6",
+        "solo_ideal": "Úmido",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "20.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 45,
+        "categoria": 2,
+        "dificuldade": "1.0",
+        "subcategorias": [
+            2,
+            7
+        ]
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 160,
+    "fields": {
+        "nome": "Boldo",
+        "nome_cientifico": "Peumus boldus",
+        "foto": "plantas/boldo.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 180,
+        "categoria": 2,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 161,
+    "fields": {
+        "nome": "Calendula",
+        "nome_cientifico": "Calendula officinalis",
+        "foto": "plantas/calendula.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "5.00",
+        "temperatura_ideal": "15.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 70,
+        "categoria": 2,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 162,
+    "fields": {
+        "nome": "Eucalipto",
+        "nome_cientifico": "Eucalyptus globulus",
+        "foto": "plantas/eucalipto.jpeg",
+        "horas_sol": "8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "20.00",
+        "temperatura_maxima": "35.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 365,
+        "categoria": 2,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 163,
+    "fields": {
+        "nome": "Guaco",
+        "nome_cientifico": "Mikania glomerata",
+        "foto": "plantas/guaco.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Úmido",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "25.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 120,
+        "categoria": 2,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 164,
+    "fields": {
+        "nome": "Espinheira-santa",
+        "nome_cientifico": "Maytenus ilicifolia",
+        "foto": "plantas/espinheira_santa.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "20.00",
+        "temperatura_maxima": "28.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 180,
+        "categoria": 2,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 165,
+    "fields": {
+        "nome": "Quebra-pedra",
+        "nome_cientifico": "Phyllanthus niruri",
+        "foto": "plantas/quebra_pedra.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Úmido bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "18.00",
+        "temperatura_ideal": "25.00",
+        "temperatura_maxima": "32.00",
+        "estacao_plantio": "Verão",
+        "dias_maturidade": 90,
+        "categoria": 2,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 166,
+    "fields": {
+        "nome": "Malva",
+        "nome_cientifico": "Malva sylvestris",
+        "foto": "plantas/malva.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "8.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "28.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 80,
+        "categoria": 2,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 167,
+    "fields": {
+        "nome": "Babosa",
+        "nome_cientifico": "Aloe arborescens",
+        "foto": "plantas/babosa.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "12.00",
+        "temperatura_ideal": "22.00",
+        "temperatura_maxima": "35.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 150,
+        "categoria": 2,
+        "dificuldade": "1.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 168,
+    "fields": {
+        "nome": "Capim-limão",
+        "nome_cientifico": "Cymbopogon citratus",
+        "foto": "plantas/capim_limao.jpeg",
+        "horas_sol": "8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "25.00",
+        "temperatura_maxima": "35.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 90,
+        "categoria": 2,
+        "dificuldade": "1.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 169,
+    "fields": {
+        "nome": "Carqueja",
+        "nome_cientifico": "Baccharis trimera",
+        "foto": "plantas/carqueja.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "5.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 120,
+        "categoria": 2,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 170,
+    "fields": {
+        "nome": "Alecrim",
+        "nome_cientifico": "Rosmarinus officinalis",
+        "foto": "plantas/alecrim.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "8.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 90,
+        "categoria": 2,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 171,
+    "fields": {
+        "nome": "Sálvia",
+        "nome_cientifico": "Salvia officinalis",
+        "foto": "plantas/salvia.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "20.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 75,
+        "categoria": 2,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 172,
+    "fields": {
+        "nome": "Tomilho",
+        "nome_cientifico": "Thymus vulgaris",
+        "foto": "plantas/tomilho.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "5.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "28.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 80,
+        "categoria": 2,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 173,
+    "fields": {
+        "nome": "Erva-doce",
+        "nome_cientifico": "Foeniculum vulgare",
+        "foto": "plantas/erva_doce.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "20.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 90,
+        "categoria": 2,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 174,
+    "fields": {
+        "nome": "Manjericão",
+        "nome_cientifico": "Ocimum basilicum",
+        "foto": "plantas/manjericao.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Úmido bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "22.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 60,
+        "categoria": 2,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 175,
+    "fields": {
+        "nome": "Capuchinha",
+        "nome_cientifico": "Tropaeolum majus",
+        "foto": "plantas/capuchinha.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "28.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 55,
+        "categoria": 2,
+        "dificuldade": "1.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 176,
+    "fields": {
+        "nome": "Arnica",
+        "nome_cientifico": "Arnica montana",
+        "foto": "plantas/arnica.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Úmido bem drenado",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "5.00",
+        "temperatura_ideal": "15.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 120,
+        "categoria": 2,
+        "dificuldade": "3.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 177,
+    "fields": {
+        "nome": "Ginseng",
+        "nome_cientifico": "Panax ginseng",
+        "foto": "plantas/ginseng.jpeg",
+        "horas_sol": "2-4",
+        "solo_ideal": "Rico úmido",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 1825,
+        "categoria": 2,
+        "dificuldade": "5.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 178,
+    "fields": {
+        "nome": "Morango",
+        "nome_cientifico": "Fragaria × ananassa",
+        "foto": "plantas/morango.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Úmido bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "20.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Verão",
+        "dias_maturidade": 60,
+        "categoria": 3,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 179,
+    "fields": {
+        "nome": "Tomate",
+        "nome_cientifico": "Solanum lycopersicum",
+        "foto": "plantas/tomate.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Rico bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "22.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 80,
+        "categoria": 3,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 180,
+    "fields": {
+        "nome": "Pimentão",
+        "nome_cientifico": "Capsicum annuum",
+        "foto": "plantas/pimentao.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Rico bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "18.00",
+        "temperatura_ideal": "25.00",
+        "temperatura_maxima": "32.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 90,
+        "categoria": 3,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 181,
+    "fields": {
+        "nome": "Berinjela",
+        "nome_cientifico": "Solanum melongena",
+        "foto": "plantas/berinjela.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Rico úmido",
+        "ventilacao": "Média",
+        "temperatura_minima": "20.00",
+        "temperatura_ideal": "25.00",
+        "temperatura_maxima": "35.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 100,
+        "categoria": 3,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 182,
+    "fields": {
+        "nome": "Abobrinha",
+        "nome_cientifico": "Cucurbita pepo",
+        "foto": "plantas/abobrinha.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Rico úmido",
+        "ventilacao": "Alta",
+        "temperatura_minima": "18.00",
+        "temperatura_ideal": "24.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 70,
+        "categoria": 3,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 183,
+    "fields": {
+        "nome": "Pepino",
+        "nome_cientifico": "Cucumis sativus",
+        "foto": "plantas/pepino.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Úmido bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "18.00",
+        "temperatura_ideal": "24.00",
+        "temperatura_maxima": "32.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 65,
+        "categoria": 3,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 184,
+    "fields": {
+        "nome": "Melancia",
+        "nome_cientifico": "Citrullus lanatus",
+        "foto": "plantas/melancia.jpeg",
+        "horas_sol": "8",
+        "solo_ideal": "Rico bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "20.00",
+        "temperatura_ideal": "26.00",
+        "temperatura_maxima": "35.00",
+        "estacao_plantio": "Verão",
+        "dias_maturidade": 90,
+        "categoria": 3,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 185,
+    "fields": {
+        "nome": "Melão",
+        "nome_cientifico": "Cucumis melo",
+        "foto": "plantas/melao.jpeg",
+        "horas_sol": "8",
+        "solo_ideal": "Rico bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "18.00",
+        "temperatura_ideal": "25.00",
+        "temperatura_maxima": "32.00",
+        "estacao_plantio": "Verão",
+        "dias_maturidade": 85,
+        "categoria": 3,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 186,
+    "fields": {
+        "nome": "Maracujá",
+        "nome_cientifico": "Passiflora edulis",
+        "foto": "plantas/maracuja.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "18.00",
+        "temperatura_ideal": "25.00",
+        "temperatura_maxima": "35.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 180,
+        "categoria": 3,
+        "dificuldade": "3.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 187,
+    "fields": {
+        "nome": "Goiaba",
+        "nome_cientifico": "Psidium guajava",
+        "foto": "plantas/goiaba.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "18.00",
+        "temperatura_ideal": "26.00",
+        "temperatura_maxima": "35.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 365,
+        "categoria": 3,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 188,
+    "fields": {
+        "nome": "Manga",
+        "nome_cientifico": "Mangifera indica",
+        "foto": "plantas/manga.jpeg",
+        "horas_sol": "8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "20.00",
+        "temperatura_ideal": "28.00",
+        "temperatura_maxima": "38.00",
+        "estacao_plantio": "Verão",
+        "dias_maturidade": 1095,
+        "categoria": 3,
+        "dificuldade": "4.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 189,
+    "fields": {
+        "nome": "Abacate",
+        "nome_cientifico": "Persea americana",
+        "foto": "plantas/abacate.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Rico bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "24.00",
+        "temperatura_maxima": "32.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 730,
+        "categoria": 3,
+        "dificuldade": "3.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 190,
+    "fields": {
+        "nome": "Limão",
+        "nome_cientifico": "Citrus limon",
+        "foto": "plantas/limao.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "22.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 365,
+        "categoria": 3,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 191,
+    "fields": {
+        "nome": "Laranja",
+        "nome_cientifico": "Citrus sinensis",
+        "foto": "plantas/laranja.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "12.00",
+        "temperatura_ideal": "22.00",
+        "temperatura_maxima": "32.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 365,
+        "categoria": 3,
+        "dificuldade": "3.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 192,
+    "fields": {
+        "nome": "Banana",
+        "nome_cientifico": "Musa acuminata",
+        "foto": "plantas/banana.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Rico úmido",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "20.00",
+        "temperatura_ideal": "27.00",
+        "temperatura_maxima": "35.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 365,
+        "categoria": 3,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 193,
+    "fields": {
+        "nome": "Mamão",
+        "nome_cientifico": "Carica papaya",
+        "foto": "plantas/mamao.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Rico bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "18.00",
+        "temperatura_ideal": "26.00",
+        "temperatura_maxima": "35.00",
+        "estacao_plantio": "Primavera",
+        "dias_maturidade": 180,
+        "categoria": 3,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 194,
+    "fields": {
+        "nome": "Uva",
+        "nome_cientifico": "Vitis vinifera",
+        "foto": "plantas/uva.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Alta",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "20.00",
+        "temperatura_maxima": "30.00",
+        "estacao_plantio": "Inverno",
+        "dias_maturidade": 730,
+        "categoria": 3,
+        "dificuldade": "4.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 195,
+    "fields": {
+        "nome": "Pêssego",
+        "nome_cientifico": "Prunus persica",
+        "foto": "plantas/pessego.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "5.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "28.00",
+        "estacao_plantio": "Inverno",
+        "dias_maturidade": 365,
+        "categoria": 3,
+        "dificuldade": "3.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 196,
+    "fields": {
+        "nome": "Ameixa",
+        "nome_cientifico": "Prunus domestica",
+        "foto": "plantas/ameixa.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "0.00",
+        "temperatura_ideal": "15.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Inverno",
+        "dias_maturidade": 365,
+        "categoria": 3,
+        "dificuldade": "3.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 197,
+    "fields": {
+        "nome": "Figo",
+        "nome_cientifico": "Ficus carica",
+        "foto": "plantas/figo.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "22.00",
+        "temperatura_maxima": "32.00",
+        "estacao_plantio": "Inverno",
+        "dias_maturidade": 365,
+        "categoria": 3,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 198,
+    "fields": {
+        "nome": "Caqui",
+        "nome_cientifico": "Diospyros kaki",
+        "foto": "plantas/caqui.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "5.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "28.00",
+        "estacao_plantio": "Inverno",
+        "dias_maturidade": 365,
+        "categoria": 3,
+        "dificuldade": "3.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 199,
+    "fields": {
+        "nome": "Jabuticaba",
+        "nome_cientifico": "Plinia cauliflora",
+        "foto": "plantas/jabuticaba.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Rico úmido",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "15.00",
+        "temperatura_ideal": "24.00",
+        "temperatura_maxima": "32.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 1095,
+        "categoria": 3,
+        "dificuldade": "4.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 200,
+    "fields": {
+        "nome": "Alface",
+        "nome_cientifico": "Lactuca sativa",
+        "foto": "plantas/alface.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Rico úmido",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 45,
+        "categoria": 4,
+        "dificuldade": "1.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 201,
+    "fields": {
+        "nome": "Rúcula",
+        "nome_cientifico": "Eruca sativa",
+        "foto": "plantas/rucula.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "8.00",
+        "temperatura_ideal": "16.00",
+        "temperatura_maxima": "24.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 30,
+        "categoria": 4,
+        "dificuldade": "1.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 202,
+    "fields": {
+        "nome": "Espinafre",
+        "nome_cientifico": "Spinacia oleracea",
+        "foto": "plantas/espinafre.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Rico úmido",
+        "ventilacao": "Média",
+        "temperatura_minima": "5.00",
+        "temperatura_ideal": "15.00",
+        "temperatura_maxima": "22.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 50,
+        "categoria": 4,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 203,
+    "fields": {
+        "nome": "Couve",
+        "nome_cientifico": "Brassica oleracea",
+        "foto": "plantas/couve.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Rico bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 60,
+        "categoria": 4,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 204,
+    "fields": {
+        "nome": "Brócolis",
+        "nome_cientifico": "Brassica oleracea italica",
+        "foto": "plantas/brocolis.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Rico bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "24.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 90,
+        "categoria": 4,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 205,
+    "fields": {
+        "nome": "Couve-flor",
+        "nome_cientifico": "Brassica oleracea botrytis",
+        "foto": "plantas/couve_flor.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Rico bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "8.00",
+        "temperatura_ideal": "16.00",
+        "temperatura_maxima": "22.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 100,
+        "categoria": 4,
+        "dificuldade": "3.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 206,
+    "fields": {
+        "nome": "Repolho",
+        "nome_cientifico": "Brassica oleracea capitata",
+        "foto": "plantas/repolho.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Rico bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "24.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 90,
+        "categoria": 4,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 207,
+    "fields": {
+        "nome": "Cenoura",
+        "nome_cientifico": "Daucus carota",
+        "foto": "plantas/cenoura.jpeg",
+        "horas_sol": "6",
+        "solo_ideal": "Profundo solto",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 90,
+        "categoria": 4,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 208,
+    "fields": {
+        "nome": "Beterraba",
+        "nome_cientifico": "Beta vulgaris",
+        "foto": "plantas/beterraba.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Rico bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "8.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "26.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 70,
+        "categoria": 4,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 209,
+    "fields": {
+        "nome": "Rabanete",
+        "nome_cientifico": "Raphanus sativus",
+        "foto": "plantas/rabanete.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Solto bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 30,
+        "categoria": 4,
+        "dificuldade": "1.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 210,
+    "fields": {
+        "nome": "Nabo",
+        "nome_cientifico": "Brassica rapa",
+        "foto": "plantas/nabo.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Rico bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "8.00",
+        "temperatura_ideal": "16.00",
+        "temperatura_maxima": "24.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 60,
+        "categoria": 4,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 211,
+    "fields": {
+        "nome": "Cebola",
+        "nome_cientifico": "Allium cepa",
+        "foto": "plantas/cebola.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "20.00",
+        "temperatura_maxima": "28.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 120,
+        "categoria": 4,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 212,
+    "fields": {
+        "nome": "Alho",
+        "nome_cientifico": "Allium sativum",
+        "foto": "plantas/alho.jpeg",
+        "horas_sol": "6-8",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "5.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 180,
+        "categoria": 4,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 213,
+    "fields": {
+        "nome": "Alho-poró",
+        "nome_cientifico": "Allium porrum",
+        "foto": "plantas/alho_poro.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Rico úmido",
+        "ventilacao": "Média",
+        "temperatura_minima": "8.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 120,
+        "categoria": 4,
+        "dificuldade": "3.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 214,
+    "fields": {
+        "nome": "Aipo",
+        "nome_cientifico": "Apium graveolens",
+        "foto": "plantas/aipo.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Rico úmido",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "24.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 120,
+        "categoria": 4,
+        "dificuldade": "3.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 215,
+    "fields": {
+        "nome": "Salsão",
+        "nome_cientifico": "Apium graveolens dulce",
+        "foto": "plantas/salsao.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Rico úmido",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "12.00",
+        "temperatura_ideal": "20.00",
+        "temperatura_maxima": "26.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 100,
+        "categoria": 4,
+        "dificuldade": "3.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 216,
+    "fields": {
+        "nome": "Chicória",
+        "nome_cientifico": "Cichorium intybusa",
+        "foto": "plantas/chicoria.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "8.00",
+        "temperatura_ideal": "16.00",
+        "temperatura_maxima": "24.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 80,
+        "categoria": 4,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 217,
+    "fields": {
+        "nome": "Agrião",
+        "nome_cientifico": "Nasturtium officinale",
+        "foto": "plantas/agriao.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Encharcado",
+        "ventilacao": "Baixa",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "16.00",
+        "temperatura_maxima": "22.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 45,
+        "categoria": 4,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 218,
+    "fields": {
+        "nome": "Mostarda",
+        "nome_cientifico": "Brassica juncea",
+        "foto": "plantas/mostarda.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "25.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 40,
+        "categoria": 4,
+        "dificuldade": "1.5",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 219,
+    "fields": {
+        "nome": "Acelga",
+        "nome_cientifico": "Beta vulgaris cicla",
+        "foto": "plantas/acelga.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Rico úmido",
+        "ventilacao": "Média",
+        "temperatura_minima": "10.00",
+        "temperatura_ideal": "18.00",
+        "temperatura_maxima": "26.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 60,
+        "categoria": 4,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 220,
+    "fields": {
+        "nome": "Almeirão",
+        "nome_cientifico": "Cichorium intybuse",
+        "foto": "plantas/almeirao.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "8.00",
+        "temperatura_ideal": "16.00",
+        "temperatura_maxima": "24.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 70,
+        "categoria": 4,
+        "dificuldade": "2.0",
+        "subcategorias": []
+    }
+},
+{
+    "model": "plantas.planta",
+    "pk": 221,
+    "fields": {
+        "nome": "Catalonha",
+        "nome_cientifico": "Cichorium intybuso foliosum",
+        "foto": "plantas/catalonha.jpeg",
+        "horas_sol": "4-6",
+        "solo_ideal": "Rico bem drenado",
+        "ventilacao": "Média",
+        "temperatura_minima": "8.00",
+        "temperatura_ideal": "16.00",
+        "temperatura_maxima": "22.00",
+        "estacao_plantio": "Outono",
+        "dias_maturidade": 80,
+        "categoria": 4,
+        "dificuldade": "2.5",
+        "subcategorias": []
+    }
+}
 ]
