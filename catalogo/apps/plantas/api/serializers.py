@@ -101,7 +101,7 @@ class CategoriaListSerializer(CategoriaSerializer):
     def get_plantas(self, obj: Categoria) -> list[NestedPlantaSerializer]:
         """Returns only the first 10 plants in the category."""
         plantas = self.get_plantas_queryset(obj)  # type: ignore
-        return NestedPlantaSerializer(plantas, many=True).data  # type: ignore
+        return NestedPlantaSerializer(plantas, many=True, context=self.context).data  # type: ignore
 
     class Meta:  # type: ignore
         model = Categoria
