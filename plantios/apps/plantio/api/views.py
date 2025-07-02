@@ -17,3 +17,6 @@ class PlantioViewSet(viewsets.ModelViewSet):
         return Plantio.objects.filter(user_id=self.request.user.id).order_by(
             "-data_plantio"
         )
+
+    def perform_create(self, serializer):
+        serializer.save(user_id=self.request.user.id)

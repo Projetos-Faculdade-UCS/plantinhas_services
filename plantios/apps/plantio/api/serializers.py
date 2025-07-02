@@ -88,3 +88,4 @@ class PlantioSerializer(serializers.ModelSerializer):
             "data_colheita",
             "informacoes_adicionais",
         ]
+        read_only_fields = ["id"]
