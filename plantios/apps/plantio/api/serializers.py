@@ -32,9 +32,17 @@ class SaudeField(serializers.Field):
             # If data is a dictionary (like from a PATCH with the output format)
             print(type(data), data)
             if isinstance(data, dict) and "value" in data:
-                return float(data["value"])
-            # If data is a simple value
-            return float(data)
+                value = float(data["value"])
+            else:
+                # If data is a simple value
+                value = float(data)
+
+            # Validate range
+            if not 0 <= value <= 1:
+                raise serializers.ValidationError(
+                    "Saúde deve ser um valor entre 0 e 1."
+                )
+            return value
         except (ValueError, TypeError):
             raise serializers.ValidationError(
                 "Saúde deve ser um valor numérico entre 0 e 1."
@@ -60,9 +68,15 @@ class SedeField(serializers.Field):
         try:
             # If data is a dictionary (like from a PATCH with the output format)
             if isinstance(data, dict) and "value" in data:
-                return float(data["value"])
-            # If data is a sim12ple value
-            return float(data)
+                value = float(data["value"])
+            else:
+                # If data is a simple value
+                value = float(data)
+
+            # Validate range
+            if not 0 <= value <= 1:
+                raise serializers.ValidationError("Sede deve ser um valor entre 0 e 1.")
+            return value
         except (ValueError, TypeError):
             raise serializers.ValidationError(
                 "Sede deve ser um valor numérico entre 0 e 1."
