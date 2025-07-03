@@ -38,7 +38,7 @@ class TarefaHabilidadeSerializer(serializers.ModelSerializer[TarefaHabilidade]):
         fields = "__all__"
 
 
-class TarefaSerializer(serializers.ModelSerializer[Tarefa]):
+class TarefaDetailSerializer(serializers.ModelSerializer[Tarefa]):
     habilidade = TarefaHabilidadeSerializer(read_only=True)
     habilidade_id = serializers.PrimaryKeyRelatedField(  # type: ignore
         queryset=TarefaHabilidade.objects.all(), source="habilidade", write_only=True
@@ -72,4 +72,25 @@ class TarefaSerializer(serializers.ModelSerializer[Tarefa]):
             "id",
             "atualizado_em",
             "criado_em",
+        ]
+
+
+class TarefaListSerializer(serializers.ModelSerializer[Tarefa]):
+    concluido = serializers.BooleanField(source="concluida", read_only=True)
+    # TODO `pode_concluir_tarefa` é necessário calcular com o CRON
+    quantidade_completada = serializers.IntegerField(
+        source="quantidade_realizada", read_only=True
+    )
+    ultima_alteracao = serializers.DateTimeField(source="atualizado_em", read_only=True)
+
+    class Meta:
+        model = Tarefa
+        fields = [
+            "id",
+            "nome",
+            "concluido",
+            "tipo",
+            "quantidade_total",
+            "quantidade_completada",
+            "ultima_alteracao",
         ]

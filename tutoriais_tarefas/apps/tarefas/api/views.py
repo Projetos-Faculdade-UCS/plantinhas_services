@@ -1,5 +1,6 @@
+from apps.tarefas.api.serializers import TarefaDetailSerializer
 from apps.tarefas.api.serializers import TarefaHabilidadeSerializer
-from apps.tarefas.api.serializers import TarefaSerializer
+from apps.tarefas.api.serializers import TarefaListSerializer
 from apps.tarefas.models import Tarefa
 from apps.tarefas.models import TarefaHabilidade
 
@@ -14,5 +15,9 @@ class TarefaHabilidadeViewSet(ModelViewSet[TarefaHabilidade]):
 
 class TarefaViewSet(ModelViewSet[Tarefa]):
     queryset = Tarefa.objects.all()
-    serializer_class = TarefaSerializer
-    http_method_names = ["get", "post", "put", "delete"]
+    http_method_names = ["get", "post", "put"]
+
+    def get_serializer_class(self):
+        if self.action == "retrieve":
+            return TarefaDetailSerializer
+        return TarefaListSerializer
