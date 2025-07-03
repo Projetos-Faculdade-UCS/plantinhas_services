@@ -1,6 +1,5 @@
 from dataclasses import dataclass
 from typing import Any
-from typing import cast
 
 from apps.habilidade.api.serializers import HabilidadeUserSerializer
 from apps.habilidade.api.serializers import MultiplicarXpSerializer
@@ -46,8 +45,6 @@ class HabilidadeViewSet(viewsets.ModelViewSet[HabilidadeUser]):
             return Response(
                 status=status.HTTP_201_CREATED,
             )
-
-        xp_para_upar = cast(int, habilidade_user.xp_para_upar)  # type: ignore
 
         # Calcular XP e nível
         params = self._CalculoParametros(
