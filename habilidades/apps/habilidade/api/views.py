@@ -1,5 +1,7 @@
 from dataclasses import dataclass
+from math import floor
 from typing import Any
+from typing import cast
 
 from apps.habilidade.api.serializers import HabilidadeUserSerializer
 from apps.habilidade.api.serializers import MultiplicarXpSerializer
@@ -46,10 +48,12 @@ class HabilidadeViewSet(viewsets.ModelViewSet[HabilidadeUser]):
                 status=status.HTTP_201_CREATED,
             )
 
+        xp_para_upar = cast(int, habilidade_user.xp_para_upar)  # type: ignore
+
         # Calcular XP e nível
         params = self._CalculoParametros(
             xp_atual=habilidade_user.xp,
-            xp_para_upar=habilidade_user.xp_para_upar,
+            xp_para_upar=xp_para_upar,
             lvl_atual=habilidade_user.nivel,
             multiplicador=multiplicador,
         )
@@ -58,7 +62,6 @@ class HabilidadeViewSet(viewsets.ModelViewSet[HabilidadeUser]):
 
         habilidade_user.xp = resultado.xp
         habilidade_user.nivel = resultado.nivel
-        habilidade_user.xp_para_upar = resultado.novo_xp_para_upar
 
         habilidade_user.save()
 
@@ -75,30 +78,18 @@ class HabilidadeViewSet(viewsets.ModelViewSet[HabilidadeUser]):
     class _CalculoResultado:
         xp: int
         nivel: int
-        novo_xp_para_upar: int
 
     def _calcular(self, params: _CalculoParametros) -> _CalculoResultado:
         # TODO: Corrigir o cálculo de XP
         novo_xp = params.xp_atual * params.multiplicador
-        novo_xp_aux = novo_xp
-        count = 0
 
-        while novo_xp_aux / 2 >= params.xp_para_upar:
-            novo_xp_aux /= 2
-            count += 1
+        quanto_upar = floor(params.multiplicador / params.xp_para_upar)
 
-        novo_nivel = params.lvl_atual + count
+        novo_nivel = params.lvl_atual + quanto_upar
         if novo_nivel < 1:
             novo_nivel = 1
-
-        novo_xp_para_upar = int(params.xp_para_upar * count * 2)
-        if novo_xp_para_upar <= novo_xp:
-            novo_xp_para_upar *= 2
-        if novo_xp_para_upar == 0:
-            novo_xp_para_upar = params.xp_para_upar
 
         return self._CalculoResultado(
             xp=int(novo_xp),
             nivel=novo_nivel,
-            novo_xp_para_upar=novo_xp_para_upar,
         )

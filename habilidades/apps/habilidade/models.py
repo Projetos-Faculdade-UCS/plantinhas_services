@@ -15,7 +15,11 @@ class HabilidadeUser(models.Model):
     )
     xp: "models.IntegerField[int, int]" = models.IntegerField(default=1)
     nivel: "models.IntegerField[int, int]" = models.IntegerField(default=1)
-    xp_para_upar: "models.IntegerField[int, int]" = models.IntegerField(default=10)
+    xp_para_upar: "models.GeneratedField" = models.GeneratedField(
+        expression=models.F("nivel") * 10,
+        db_persist=True,
+        output_field=models.IntegerField(),
+    )
 
     class Meta:
         unique_together = ("user_id", "habilidade")
