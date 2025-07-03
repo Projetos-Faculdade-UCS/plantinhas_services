@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.functions import Power
 
 
 class Habilidade(models.Model):
@@ -16,7 +17,7 @@ class HabilidadeUser(models.Model):
     xp: "models.IntegerField[int, int]" = models.IntegerField(default=1)
     nivel: "models.IntegerField[int, int]" = models.IntegerField(default=1)
     xp_para_upar: "models.GeneratedField" = models.GeneratedField(
-        expression=models.F("nivel") * 10,
+        expression=10 * Power(2, models.F("nivel") - 1),
         db_persist=True,
         output_field=models.IntegerField(),
     )

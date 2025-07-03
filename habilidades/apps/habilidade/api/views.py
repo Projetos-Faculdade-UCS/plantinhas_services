@@ -1,5 +1,4 @@
 from dataclasses import dataclass
-from math import floor
 from typing import Any
 from typing import cast
 
@@ -53,7 +52,6 @@ class HabilidadeViewSet(viewsets.ModelViewSet[HabilidadeUser]):
         # Calcular XP e nível
         params = self._CalculoParametros(
             xp_atual=habilidade_user.xp,
-            xp_para_upar=xp_para_upar,
             lvl_atual=habilidade_user.nivel,
             multiplicador=multiplicador,
         )
@@ -70,7 +68,6 @@ class HabilidadeViewSet(viewsets.ModelViewSet[HabilidadeUser]):
     @dataclass
     class _CalculoParametros:
         xp_atual: int
-        xp_para_upar: int
         lvl_atual: int
         multiplicador: float
 
@@ -79,15 +76,18 @@ class HabilidadeViewSet(viewsets.ModelViewSet[HabilidadeUser]):
         xp: int
         nivel: int
 
+    def _calcular_xp_para_upar(self, nivel: int) -> int:
+        """Calcula a quantidade de XP necessária para upar para o próximo nível."""
+        return 10 * (2 ** (nivel - 1))
+
     def _calcular(self, params: _CalculoParametros) -> _CalculoResultado:
-        # TODO: Corrigir o cálculo de XP
         novo_xp = params.xp_atual * params.multiplicador
+        novo_nivel = params.lvl_atual
+        xp_para_upar = self._calcular_xp_para_upar(novo_nivel)
 
-        quanto_upar = floor(params.multiplicador / params.xp_para_upar)
-
-        novo_nivel = params.lvl_atual + quanto_upar
-        if novo_nivel < 1:
-            novo_nivel = 1
+        while novo_xp >= xp_para_upar:
+            novo_nivel += 1
+            xp_para_upar = self._calcular_xp_para_upar(novo_nivel)
 
         return self._CalculoResultado(
             xp=int(novo_xp),
