@@ -1,5 +1,6 @@
+from decimal import Decimal
+
 from django.db import models
-from django.db.models.functions import Power
 
 
 class Habilidade(models.Model):
@@ -14,10 +15,14 @@ class HabilidadeUser(models.Model):
     habilidade: "models.ForeignKey[Habilidade, Habilidade]" = models.ForeignKey(
         Habilidade, on_delete=models.CASCADE
     )
-    xp: "models.IntegerField[int, int]" = models.IntegerField(default=1)
+    xp: "models.DecimalField[float | Decimal, Decimal]" = models.DecimalField(
+        default=1,
+        max_digits=10,
+        decimal_places=2,
+    )
     nivel: "models.IntegerField[int, int]" = models.IntegerField(default=1)
     xp_para_upar: "models.GeneratedField" = models.GeneratedField(
-        expression=10 * Power(2, models.F("nivel") - 1),
+        expression=(models.F("nivel") * 30) - 20,
         db_persist=True,
         output_field=models.IntegerField(),
     )

@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from decimal import Decimal
 from typing import Any
 
 from apps.habilidade.api.serializers import HabilidadeUserSerializer
@@ -64,21 +65,21 @@ class HabilidadeViewSet(viewsets.ModelViewSet[HabilidadeUser]):
 
     @dataclass
     class _CalculoParametros:
-        xp_atual: int
+        xp_atual: Decimal
         lvl_atual: int
         multiplicador: float
 
     @dataclass
     class _CalculoResultado:
-        xp: int
+        xp: Decimal
         nivel: int
 
     def _calcular_xp_para_upar(self, nivel: int) -> int:
         """Calcula a quantidade de XP necessária para upar para o próximo nível."""
-        return 10 * (2 ** (nivel - 1))
+        return (30 * nivel) - 20
 
     def _calcular(self, params: _CalculoParametros) -> _CalculoResultado:
-        novo_xp = params.xp_atual * params.multiplicador
+        novo_xp = params.xp_atual * Decimal(params.multiplicador)
         novo_nivel = params.lvl_atual
         xp_para_upar = self._calcular_xp_para_upar(novo_nivel)
 
@@ -86,7 +87,10 @@ class HabilidadeViewSet(viewsets.ModelViewSet[HabilidadeUser]):
             novo_nivel += 1
             xp_para_upar = self._calcular_xp_para_upar(novo_nivel)
 
+        if novo_nivel > params.lvl_atual:
+            novo_xp = Decimal(1)
+
         return self._CalculoResultado(
-            xp=int(novo_xp),
+            xp=novo_xp,
             nivel=novo_nivel,
         )
