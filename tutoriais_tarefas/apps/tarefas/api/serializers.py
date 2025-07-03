@@ -1,7 +1,6 @@
 from apps.tarefas.models import Etapa
 from apps.tarefas.models import MaterialTarefa
 from apps.tarefas.models import Tarefa
-from apps.tarefas.models import TarefaHabilidade
 
 from rest_framework import serializers
 
@@ -21,7 +20,7 @@ class MaterialTarefaSerializer(serializers.ModelSerializer[MaterialTarefa]):
     class Meta:
         model = MaterialTarefa
         fields = [
-            "nome",  # Assuming you have a material_id field in your model
+            "nome",
             "quantidade",
             "unidade",
         ]
@@ -32,17 +31,16 @@ class TutorialSerializer(serializers.Serializer):
     etapas = EtapaSerializer(many=True, read_only=True)
 
 
-class TarefaHabilidadeSerializer(serializers.ModelSerializer[TarefaHabilidade]):
-    class Meta:  # type: ignore
-        model = TarefaHabilidade
-        fields = "__all__"
-
-
 class TarefaDetailSerializer(serializers.ModelSerializer[Tarefa]):
-    habilidade = TarefaHabilidadeSerializer(read_only=True)
-    habilidade_id = serializers.PrimaryKeyRelatedField(  # type: ignore
-        queryset=TarefaHabilidade.objects.all(), source="habilidade", write_only=True
+    concluido = serializers.BooleanField(source="concluida", read_only=True)
+    # TODO `data_proxima_ocorrencia` deve ser calculada com o CRON
+    # TODO `pode_concluir_tarefa` deve ser calculada com o CRON
+    quantidade_completada = serializers.IntegerField(
+        source="quantidade_realizada", read_only=True
     )
+    ultima_alteracao = serializers.DateTimeField(source="atualizado_em", read_only=True)
+    # TODO `frequencia` deve ser calculada com o CRON
+    # TODO `habilidade` deve ser feita relação com o db de habilidades
     tutorial = serializers.SerializerMethodField()
 
     def get_tutorial(self, obj: Tarefa) -> dict | None:
@@ -56,17 +54,12 @@ class TarefaDetailSerializer(serializers.ModelSerializer[Tarefa]):
         fields = [
             "id",
             "nome",
-            "concluida",
+            "concluido",
             "tipo",
             "quantidade_total",
-            "quantidade_realizada",
-            "atualizado_em",
-            "cron",
-            "habilidade",  # For reading
-            "criado_em",
-            "data_conclusao",
-            "habilidade_id",  # For writing
-            "tutorial",  # For reading
+            "quantidade_completada",
+            "ultima_alteracao",
+            "tutorial",
         ]
         read_only_fields = [
             "id",
