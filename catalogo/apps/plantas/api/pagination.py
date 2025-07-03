@@ -45,7 +45,9 @@ class CustomPagination(PageNumberPagination):
                 page_size = int(request.query_params[self.page_size_query_param])
                 if page_size > 0:
                     max_size = self.max_page_size or 100
-                    return min(page_size, max_size)
+                    calculated_size = min(page_size, max_size)
+                    self.page_size = calculated_size
+                    return calculated_size
             except (KeyError, ValueError):
                 pass
         return self.page_size or 10
