@@ -1,0 +1,130 @@
+[
+    {
+        "model": "tarefas.tarefahabilidade",
+        "pk": 1,
+        "fields": {
+            "habilidade_id": 1,
+            "multiplicador_xp": 1.5
+        }
+    },
+    {
+        "model": "tarefas.tarefahabilidade",
+        "pk": 2,
+        "fields": {
+            "habilidade_id": 2,
+            "multiplicador_xp": 2.0
+        }
+    },
+    {
+        "model": "tarefas.tarefahabilidade",
+        "pk": 3,
+        "fields": {
+            "habilidade_id": 3,
+            "multiplicador_xp": 1.2
+        }
+    },
+    {
+        "model": "tarefas.tarefahabilidade",
+        "pk": 4,
+        "fields": {
+            "habilidade_id": 4,
+            "multiplicador_xp": 1.8
+        }
+    },
+    {
+        "model": "tarefas.tarefa",
+        "pk": 1,
+        "fields": {
+            "nome": "Regar plantas do jardim",
+            "tipo": "recorrente",
+            "quantidade_total": 30,
+            "quantidade_realizada": 5,
+            "cron": "0 8 * * *",
+            "habilidade": 1,
+            "criado_em": "2025-06-01T08:00:00Z",
+            "atualizado_em": "2025-07-03T08:30:00Z",
+            "concluida": false,
+            "data_conclusao": null
+        }
+    },
+    {
+        "model": "tarefas.tarefa",
+        "pk": 2,
+        "fields": {
+            "nome": "Plantar mudas de tomate",
+            "tipo": "pontual",
+            "quantidade_total": 1,
+            "quantidade_realizada": 0,
+            "cron": "0 9 15 * *",
+            "habilidade": 2,
+            "criado_em": "2025-06-15T09:00:00Z",
+            "atualizado_em": "2025-06-15T09:00:00Z",
+            "concluida": false,
+            "data_conclusao": null
+        }
+    },
+    {
+        "model": "tarefas.tarefa",
+        "pk": 3,
+        "fields": {
+            "nome": "Adubar vasos da varanda",
+            "tipo": "recorrente",
+            "quantidade_total": 12,
+            "quantidade_realizada": 3,
+            "cron": "0 7 1 * *",
+            "habilidade": 3,
+            "criado_em": "2025-05-01T07:00:00Z",
+            "atualizado_em": "2025-07-01T07:15:00Z",
+            "concluida": false,
+            "data_conclusao": null
+        }
+    },
+    {
+        "model": "tarefas.tarefa",
+        "pk": 4,
+        "fields": {
+            "nome": "Colher tomates maduros",
+            "tipo": "pontual",
+            "quantidade_total": 1,
+            "quantidade_realizada": 1,
+            "cron": "0 18 * * *",
+            "habilidade": 1,
+            "criado_em": "2025-06-20T18:00:00Z",
+            "atualizado_em": "2025-06-25T18:30:00Z",
+            "concluida": true,
+            "data_conclusao": "2025-06-25T18:30:00Z"
+        }
+    },
+    {
+        "model": "tarefas.tarefa",
+        "pk": 5,
+        "fields": {
+            "nome": "Podar roseiras",
+            "tipo": "recorrente",
+            "quantidade_total": 6,
+            "quantidade_realizada": 2,
+            "cron": "0 16 * * 6",
+            "habilidade": 4,
+            "criado_em": "2025-05-15T16:00:00Z",
+            "atualizado_em": "2025-06-29T16:30:00Z",
+            "concluida": false,
+            "data_conclusao": null
+        }
+    },
+    {
+        "model": "tarefas.tarefa",
+        "pk": 6,
+        "fields": {
+            "nome": "Preparar substrato para mudas",
+            "tipo": "pontual",
+            "quantidade_total": 1,
+            "quantidade_realizada": 0,
+            "cron": "0 10 * * *",
+            "habilidade": 2,
+            "criado_em": "2025-07-01T10:00:00Z",
+            "atualizado_em": "2025-07-01T10:00:00Z",
+            "concluida": false,
+            "data_conclusao": null
+        }
+    }
+]

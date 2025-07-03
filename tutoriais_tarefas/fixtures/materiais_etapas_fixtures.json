@@ -1,0 +1,337 @@
+[
+    {
+        "model": "tarefas.material",
+        "pk": 1,
+        "fields": {
+            "nome": "Água"
+        }
+    },
+    {
+        "model": "tarefas.material",
+        "pk": 2,
+        "fields": {
+            "nome": "Adubo orgânico"
+        }
+    },
+    {
+        "model": "tarefas.material",
+        "pk": 3,
+        "fields": {
+            "nome": "Mudas de tomate"
+        }
+    },
+    {
+        "model": "tarefas.material",
+        "pk": 4,
+        "fields": {
+            "nome": "Terra vegetal"
+        }
+    },
+    {
+        "model": "tarefas.material",
+        "pk": 5,
+        "fields": {
+            "nome": "Vaso de plástico"
+        }
+    },
+    {
+        "model": "tarefas.material",
+        "pk": 6,
+        "fields": {
+            "nome": "Regador"
+        }
+    },
+    {
+        "model": "tarefas.material",
+        "pk": 7,
+        "fields": {
+            "nome": "Tesoura de poda"
+        }
+    },
+    {
+        "model": "tarefas.material",
+        "pk": 8,
+        "fields": {
+            "nome": "Perlita"
+        }
+    },
+    {
+        "model": "tarefas.material",
+        "pk": 9,
+        "fields": {
+            "nome": "Húmus de minhoca"
+        }
+    },
+    {
+        "model": "tarefas.materialtarefa",
+        "pk": 1,
+        "fields": {
+            "tarefa": 1,
+            "material": 1,
+            "quantidade": "2.50",
+            "unidade": "Litros"
+        }
+    },
+    {
+        "model": "tarefas.materialtarefa",
+        "pk": 2,
+        "fields": {
+            "tarefa": 1,
+            "material": 6,
+            "quantidade": "1.00",
+            "unidade": "un"
+        }
+    },
+    {
+        "model": "tarefas.materialtarefa",
+        "pk": 3,
+        "fields": {
+            "tarefa": 2,
+            "material": 3,
+            "quantidade": "6.00",
+            "unidade": "un"
+        }
+    },
+    {
+        "model": "tarefas.materialtarefa",
+        "pk": 4,
+        "fields": {
+            "tarefa": 2,
+            "material": 4,
+            "quantidade": "2.00",
+            "unidade": "kg"
+        }
+    },
+    {
+        "model": "tarefas.materialtarefa",
+        "pk": 5,
+        "fields": {
+            "tarefa": 2,
+            "material": 5,
+            "quantidade": "6.00",
+            "unidade": "un"
+        }
+    },
+    {
+        "model": "tarefas.materialtarefa",
+        "pk": 6,
+        "fields": {
+            "tarefa": 3,
+            "material": 2,
+            "quantidade": "0.50",
+            "unidade": "kg"
+        }
+    },
+    {
+        "model": "tarefas.materialtarefa",
+        "pk": 7,
+        "fields": {
+            "tarefa": 3,
+            "material": 1,
+            "quantidade": "1.00",
+            "unidade": "Litros"
+        }
+    },
+    {
+        "model": "tarefas.materialtarefa",
+        "pk": 8,
+        "fields": {
+            "tarefa": 5,
+            "material": 7,
+            "quantidade": "1.00",
+            "unidade": "un"
+        }
+    },
+    {
+        "model": "tarefas.materialtarefa",
+        "pk": 9,
+        "fields": {
+            "tarefa": 6,
+            "material": 4,
+            "quantidade": "5.00",
+            "unidade": "kg"
+        }
+    },
+    {
+        "model": "tarefas.materialtarefa",
+        "pk": 10,
+        "fields": {
+            "tarefa": 6,
+            "material": 8,
+            "quantidade": "1.00",
+            "unidade": "kg"
+        }
+    },
+    {
+        "model": "tarefas.materialtarefa",
+        "pk": 11,
+        "fields": {
+            "tarefa": 6,
+            "material": 9,
+            "quantidade": "2.00",
+            "unidade": "kg"
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 1,
+        "fields": {
+            "tarefa": 1,
+            "descricao": "Verificar se a terra está seca tocando com o dedo",
+            "ordem": 1
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 2,
+        "fields": {
+            "tarefa": 1,
+            "descricao": "Encher o regador com água limpa",
+            "ordem": 2
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 3,
+        "fields": {
+            "tarefa": 1,
+            "descricao": "Regar lentamente próximo às raízes, evitando as folhas",
+            "ordem": 3
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 4,
+        "fields": {
+            "tarefa": 2,
+            "descricao": "Preparar os vasos com furos para drenagem",
+            "ordem": 1
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 5,
+        "fields": {
+            "tarefa": 2,
+            "descricao": "Preencher os vasos com terra vegetal até 3/4 da altura",
+            "ordem": 2
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 6,
+        "fields": {
+            "tarefa": 2,
+            "descricao": "Fazer um buraco no centro da terra com o dedo",
+            "ordem": 3
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 7,
+        "fields": {
+            "tarefa": 2,
+            "descricao": "Colocar a muda no buraco e cobrir com terra",
+            "ordem": 4
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 8,
+        "fields": {
+            "tarefa": 2,
+            "descricao": "Regar levemente após o plantio",
+            "ordem": 5
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 9,
+        "fields": {
+            "tarefa": 3,
+            "descricao": "Misturar o adubo orgânico com a terra ao redor da planta",
+            "ordem": 1
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 10,
+        "fields": {
+            "tarefa": 3,
+            "descricao": "Regar após a aplicação do adubo",
+            "ordem": 2
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 11,
+        "fields": {
+            "tarefa": 4,
+            "descricao": "Verificar quais tomates estão vermelhos e maduros",
+            "ordem": 1
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 12,
+        "fields": {
+            "tarefa": 4,
+            "descricao": "Colher os tomates com cuidado, girando levemente",
+            "ordem": 2
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 13,
+        "fields": {
+            "tarefa": 5,
+            "descricao": "Identificar galhos secos, doentes ou que crescem para dentro",
+            "ordem": 1
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 14,
+        "fields": {
+            "tarefa": 5,
+            "descricao": "Cortar os galhos selecionados com tesoura bem afiada",
+            "ordem": 2
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 15,
+        "fields": {
+            "tarefa": 5,
+            "descricao": "Fazer corte em diagonal, 5mm acima de uma gema",
+            "ordem": 3
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 16,
+        "fields": {
+            "tarefa": 6,
+            "descricao": "Misturar terra vegetal, perlita e húmus de minhoca",
+            "ordem": 1
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 17,
+        "fields": {
+            "tarefa": 6,
+            "descricao": "Peneirar a mistura para remover torrões grandes",
+            "ordem": 2
+        }
+    },
+    {
+        "model": "tarefas.etapa",
+        "pk": 18,
+        "fields": {
+            "tarefa": 6,
+            "descricao": "Armazenar o substrato em local seco até o uso",
+            "ordem": 3
+        }
+    }
+]
