@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Plantio(models.Model):
     planta_id = models.IntegerField()
     user_id = models.IntegerField()
@@ -8,6 +9,7 @@ class Plantio(models.Model):
     saude = models.FloatField()
     sede = models.FloatField()
     situacao = models.CharField(max_length=100)
+    informacoes_adicionais = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.planta.nome} - {self.user.username}"
