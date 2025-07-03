@@ -1,41 +1,38 @@
 from apps.tutoriais.models import Etapa
-from apps.tutoriais.models import Material
 from apps.tutoriais.models import MaterialTutorial
 from apps.tutoriais.models import Tutorial
 
 from rest_framework import serializers
 
 
-class MaterialSerializer(serializers.ModelSerializer[Material]):
-    class Meta:  # type: ignore
-        model = Material
-        fields = "__all__"
-
-
 class MaterialTutorialSerializer(serializers.ModelSerializer[MaterialTutorial]):
+    nome = serializers.CharField(source="material.nome", read_only=True)
+
     class Meta:  # type: ignore
         model = MaterialTutorial
-        fields = "__all__"
+        fields = [
+            "nome",
+            "quantidade",
+            "unidade",
+        ]
 
 
 class EtapaSerializer(serializers.ModelSerializer[Etapa]):
     class Meta:  # type: ignore
         model = Etapa
-        fields = "__all__"
+        fields = [
+            "descricao",
+            "ordem",
+        ]
 
 
-class TutorialSerializer(serializers.ModelSerializer[Tutorial]):
+class TutorialDetailSerializer(serializers.ModelSerializer[Tutorial]):
     materiais = MaterialTutorialSerializer(many=True, read_only=True)
     etapas = EtapaSerializer(many=True, read_only=True)
 
     class Meta:  # type: ignore
         model = Tutorial
         fields = [
-            "id",
-            "titulo",
-            "descricao",
-            "criado_em",
-            "atualizado_em",
             "materiais",
             "etapas",
-        ]  # Explicitly listing fields to avoid potential issues with __all__ and related fields
+        ]
