@@ -7,6 +7,23 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 
 
+class CronFrequencia(models.Model):
+    cron_expression: "models.CharField[str, str]" = models.CharField(
+        max_length=255,
+        unique=True,
+        verbose_name=_("Expressão Cron"),
+        help_text=_("Expressão Cron para agendamento da tarefa"),
+    )
+
+    frequencia: "models.CharField[str, str]" = models.CharField(
+        max_length=50,
+        verbose_name=_("Frequência"),
+        help_text=_(
+            "Descrição da frequência da tarefa, ex: 'diária', 'semanal', 'mensal'"
+        ),
+    )
+
+
 class TarefaHabilidade(models.Model):
     habilidade_id: models.IntegerField[int, int] = models.IntegerField(
         verbose_name=_("Habilidade ID"),

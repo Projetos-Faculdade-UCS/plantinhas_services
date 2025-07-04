@@ -1,5 +1,7 @@
+import re
 from typing import Any
 
+from apps.tarefas.models import CronFrequencia
 from apps.tarefas.models import Etapa
 from apps.tarefas.models import Material
 from apps.tarefas.models import MaterialTarefa
@@ -61,8 +63,6 @@ class TarefaListSerializer(serializers.ModelSerializer[Tarefa]):
 class TarefaDetailSerializer(TarefaListSerializer):
     # TODO `data_proxima_ocorrencia` deve ser calculada com o CRON
     # TODO `pode_concluir_tarefa` deve ser calculada com o CRON
-    # TODO `frequencia` deve ser calculada com o CRON
-    # TODO `habilidade` deve ser feita relação com o db de habilidades
     tutorial = serializers.SerializerMethodField()
     frequencia = serializers.SerializerMethodField()
 
@@ -72,8 +72,24 @@ class TarefaDetailSerializer(TarefaListSerializer):
             "etapas": EtapaSerializer(obj.etapas, many=True).data,  # type: ignore
         }
 
+    def get_frequencia(self, obj: Tarefa) -> str | None:
+        cron_frequencias = CronFrequencia.objects.all()
+
+        for cron_frequencia in cron_frequencias:
+            regex = cron_frequencia.cron_expression
+            descricao = cron_frequencia.frequencia
+            match = re.match(regex, obj.cron)
+            if match:
+                # If the pattern has a format parameter, extract the interval value
+                if "{0}" in descricao:
+                    # Use named group 'interval' to get the interval value
+                    interval = match.group("interval")
+                    return descricao.format(interval)
+                return descricao
+        return None
+
     class Meta(TarefaListSerializer.Meta):
-        fields = TarefaListSerializer.Meta.fields + ["tutorial"]
+        fields = ["frequencia", *TarefaListSerializer.Meta.fields, "tutorial"]
 
 
 # CREATE SERIALIZERS
