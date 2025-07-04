@@ -56,7 +56,9 @@ class CategoriaViewSet(ModelViewSet[Categoria]):
         paginator = PlantaPagination()
         page = paginator.paginate_queryset(plantas, request)
         if page is not None:
-            serializer = PlantaListSerializer(page, many=True)
+            serializer = PlantaListSerializer(
+                page, many=True, context={"request": request}
+            )
             return paginator.get_paginated_response(serializer.data)  # type: ignore
 
         # Fallback if pagination fails
