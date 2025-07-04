@@ -44,7 +44,20 @@ class TarefaListSerializer(serializers.ModelSerializer[Tarefa]):
         source="quantidade_realizada", read_only=True
     )
     ultima_alteracao = serializers.DateTimeField(source="atualizado_em", read_only=True)
-    # TODO `pode_concluir_tarefa` é necessário calcular com o CRON
+    pode_concluir_tarefa = serializers.SerializerMethodField()
+
+    def get_pode_concluir_tarefa(self, obj: Tarefa) -> bool:
+        """
+        Determines if the task can be concluded based on the cron expression.
+        This is a placeholder method and should be implemented with actual logic.
+        """
+        if bool(obj.concluida):  # type: ignore
+            return False
+
+        return CronHelper.pode_concluir_tarefa(
+            obj.cron,
+            obj.data_ultima_realizacao,
+        )
 
     class Meta:  # type: ignore
         model = Tarefa
