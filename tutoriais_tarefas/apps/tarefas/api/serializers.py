@@ -69,6 +69,7 @@ class TarefaListSerializer(serializers.ModelSerializer[Tarefa]):
             "quantidade_total",
             "quantidade_completada",
             "ultima_alteracao",
+            "pode_concluir_tarefa",
         ]
 
 
@@ -105,10 +106,10 @@ class TarefaDetailSerializer(TarefaListSerializer):
 
     class Meta(TarefaListSerializer.Meta):
         fields = [
-            "pode_concluir_tarefa",
-            "data_proxima_ocorrencia",
             *TarefaListSerializer.Meta.fields,
             "frequencia",
+            "pode_concluir_tarefa",
+            "data_proxima_ocorrencia",
             "tutorial",
         ]
 
