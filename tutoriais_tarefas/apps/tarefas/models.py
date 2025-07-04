@@ -25,9 +25,18 @@ class TarefaHabilidade(models.Model):
 
 class Tarefa(models.Model):
     TIPO_TAREFA_CHOICES = [
-        ("recorrente", _("Recorrente")),
-        ("pontual", _("Pontual")),
+        ("cultivo", _("Cultivo")),
+        ("colheita", _("Colheita")),
+        ("irrigacao", _("Irrigação")),
+        ("inspecao", _("Inspeção")),
+        ("nutricao", _("Nutrição")),
+        ("poda", _("Poda")),
     ]
+
+    plantio_id: models.IntegerField[int, int] = models.IntegerField(
+        verbose_name=_("Plantio ID"),
+        help_text=_("ID do plantio associado à tarefa"),
+    )
 
     nome: models.CharField[str, str] = models.CharField(
         max_length=200,
