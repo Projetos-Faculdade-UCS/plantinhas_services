@@ -4,6 +4,7 @@ import datetime
 
 from django.core import validators
 from django.db import models
+from django.db.models.lookups import GreaterThanOrEqual
 from django.utils.translation import gettext_lazy as _
 
 
@@ -97,12 +98,28 @@ class Tarefa(models.Model):
             verbose_name=_("Criado em"),
         )
     )
-    concluida: models.BooleanField[bool, bool] = models.BooleanField(
-        default=False, verbose_name=_("Concluída")
+    concluida: models.GeneratedField = models.GeneratedField(
+        expression=GreaterThanOrEqual(
+            models.F("quantidade_realizada"), models.F("quantidade_total")
+        ),  # type: ignore
+        output_field=models.BooleanField(),  # type: ignore
+        db_persist=True,
+        verbose_name=_("Concluída"),
+        help_text=_("Indica se a tarefa foi concluída"),
     )
+
     data_conclusao: models.DateTimeField[
         datetime.datetime | None, datetime.datetime | None
     ] = models.DateTimeField(null=True, blank=True, verbose_name=_("Data de Conclusão"))
+
+    data_ultima_realizacao: models.DateTimeField[
+        datetime.datetime | None, datetime.datetime | None
+    ] = models.DateTimeField(
+        null=True,
+        blank=True,
+        verbose_name=_("Data da Última Realização"),
+        help_text=_("Data e hora da última vez que a tarefa foi realizada"),
+    )
 
     def __str__(self) -> str:
         return self.nome

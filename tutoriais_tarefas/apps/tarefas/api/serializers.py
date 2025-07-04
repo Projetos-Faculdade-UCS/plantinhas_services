@@ -1,7 +1,6 @@
-import re
 from typing import Any
 
-from apps.tarefas.models import CronFrequencia
+from apps.core.helpers import CronHelper
 from apps.tarefas.models import Etapa
 from apps.tarefas.models import Material
 from apps.tarefas.models import MaterialTarefa
@@ -61,10 +60,10 @@ class TarefaListSerializer(serializers.ModelSerializer[Tarefa]):
 
 
 class TarefaDetailSerializer(TarefaListSerializer):
-    # TODO `data_proxima_ocorrencia` deve ser calculada com o CRON
-    # TODO `pode_concluir_tarefa` deve ser calculada com o CRON
     tutorial = serializers.SerializerMethodField()
     frequencia = serializers.SerializerMethodField()
+    data_proxima_ocorrencia = serializers.SerializerMethodField()
+    pode_concluir_tarefa = serializers.SerializerMethodField()
 
     def get_tutorial(self, obj: Tarefa) -> dict[str, Any] | None:
         return {
@@ -73,23 +72,32 @@ class TarefaDetailSerializer(TarefaListSerializer):
         }
 
     def get_frequencia(self, obj: Tarefa) -> str | None:
-        cron_frequencias = CronFrequencia.objects.all()
+        return CronHelper.get_frequencia(obj.cron)
 
-        for cron_frequencia in cron_frequencias:
-            regex = cron_frequencia.cron_expression
-            descricao = cron_frequencia.frequencia
-            match = re.match(regex, obj.cron)
-            if match:
-                # If the pattern has a format parameter, extract the interval value
-                if "{0}" in descricao:
-                    # Use named group 'interval' to get the interval value
-                    interval = match.group("interval")
-                    return descricao.format(interval)
-                return descricao
-        return None
+    def get_data_proxima_ocorrencia(self, obj: Tarefa) -> float | None:
+        return CronHelper.get_data_proxima_ocorrencia(obj.cron)
+
+    def get_pode_concluir_tarefa(self, obj: Tarefa) -> bool:
+        """
+        Determines if the task can be concluded based on the cron expression.
+        This is a placeholder method and should be implemented with actual logic.
+        """
+        if bool(obj.concluida):  # type: ignore
+            return False
+
+        return CronHelper.pode_concluir_tarefa(
+            obj.cron,
+            obj.data_ultima_realizacao,
+        )
 
     class Meta(TarefaListSerializer.Meta):
-        fields = ["frequencia", *TarefaListSerializer.Meta.fields, "tutorial"]
+        fields = [
+            "pode_concluir_tarefa",
+            "data_proxima_ocorrencia",
+            *TarefaListSerializer.Meta.fields,
+            "frequencia",
+            "tutorial",
+        ]
 
 
 # CREATE SERIALIZERS
