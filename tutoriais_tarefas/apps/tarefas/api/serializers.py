@@ -1,3 +1,5 @@
+from typing import Any
+
 from apps.tarefas.models import Etapa
 from apps.tarefas.models import Material
 from apps.tarefas.models import MaterialTarefa
@@ -10,7 +12,7 @@ from rest_framework import serializers
 
 
 class EtapaSerializer(serializers.ModelSerializer[Etapa]):
-    class Meta:
+    class Meta:  # type: ignore
         model = Etapa
         fields = [
             "descricao",
@@ -21,7 +23,7 @@ class EtapaSerializer(serializers.ModelSerializer[Etapa]):
 class MaterialTarefaSerializer(serializers.ModelSerializer[MaterialTarefa]):
     nome = serializers.CharField(source="material.nome", read_only=True)
 
-    class Meta:
+    class Meta:  # type: ignore
         model = MaterialTarefa
         fields = [
             "nome",
@@ -30,7 +32,7 @@ class MaterialTarefaSerializer(serializers.ModelSerializer[MaterialTarefa]):
         ]
 
 
-class TutorialSerializer(serializers.Serializer):
+class TutorialSerializer(serializers.Serializer[Any]):
     materiais = MaterialTarefaSerializer(many=True, read_only=True)
     etapas = EtapaSerializer(many=True, read_only=True)
 
@@ -43,7 +45,7 @@ class TarefaListSerializer(serializers.ModelSerializer[Tarefa]):
     ultima_alteracao = serializers.DateTimeField(source="atualizado_em", read_only=True)
     # TODO `pode_concluir_tarefa` é necessário calcular com o CRON
 
-    class Meta:
+    class Meta:  # type: ignore
         model = Tarefa
         fields = [
             "id",
@@ -62,11 +64,12 @@ class TarefaDetailSerializer(TarefaListSerializer):
     # TODO `frequencia` deve ser calculada com o CRON
     # TODO `habilidade` deve ser feita relação com o db de habilidades
     tutorial = serializers.SerializerMethodField()
+    frequencia = serializers.SerializerMethodField()
 
-    def get_tutorial(self, obj: Tarefa) -> dict | None:
+    def get_tutorial(self, obj: Tarefa) -> dict[str, Any] | None:
         return {
-            "materiais": MaterialTarefaSerializer(obj.materiais, many=True).data,
-            "etapas": EtapaSerializer(obj.etapas, many=True).data,
+            "materiais": MaterialTarefaSerializer(obj.materiais, many=True).data,  # type: ignore
+            "etapas": EtapaSerializer(obj.etapas, many=True).data,  # type: ignore
         }
 
     class Meta(TarefaListSerializer.Meta):
@@ -76,23 +79,23 @@ class TarefaDetailSerializer(TarefaListSerializer):
 # CREATE SERIALIZERS
 
 
-class MaterialTarefaCreateSerializer(serializers.Serializer):
+class MaterialTarefaCreateSerializer(serializers.Serializer[Any]):
     nome = serializers.CharField(max_length=100)
     quantidade = serializers.DecimalField(max_digits=10, decimal_places=2)
     unidade = serializers.CharField(max_length=50, default="un")
 
 
-class EtapaCreateSerializer(serializers.Serializer):
+class EtapaCreateSerializer(serializers.Serializer[Any]):
     descricao = serializers.CharField()
     ordem = serializers.IntegerField()
 
 
-class TutorialCreateSerializer(serializers.Serializer):
+class TutorialCreateSerializer(serializers.Serializer[Any]):
     materiais = MaterialTarefaCreateSerializer(many=True)
     etapas = EtapaCreateSerializer(many=True)
 
 
-class HabilidadeCreateSerializer(serializers.Serializer):
+class HabilidadeCreateSerializer(serializers.Serializer[Any]):
     id = serializers.IntegerField()
     multiplicador_xp = serializers.FloatField(
         validators=[
@@ -106,7 +109,7 @@ class TarefaCreateSerializer(serializers.ModelSerializer[Tarefa]):
     habilidade = HabilidadeCreateSerializer(write_only=True)
     tutorial = TutorialCreateSerializer(write_only=True)
 
-    class Meta:
+    class Meta:  # type: ignore
         model = Tarefa
         fields = [
             "plantio_id",
@@ -118,14 +121,14 @@ class TarefaCreateSerializer(serializers.ModelSerializer[Tarefa]):
             "tutorial",
         ]
 
-    def create(self, validated_data: dict) -> Tarefa:
+    def create(self, validated_data: dict[str, Any]) -> Tarefa:
         # Extrair dados aninhados
         print(validated_data)
         habilidade_data = validated_data.pop("habilidade")
         tutorial_data = validated_data.pop("tutorial")
 
         # 1. Criar ou buscar TarefaHabilidade
-        tarefa_habilidade, created = TarefaHabilidade.objects.get_or_create(
+        tarefa_habilidade, _created = TarefaHabilidade.objects.get_or_create(
             habilidade_id=habilidade_data["id"],
             defaults={"multiplicador_xp": habilidade_data["multiplicador_xp"]},
         )
@@ -136,7 +139,7 @@ class TarefaCreateSerializer(serializers.ModelSerializer[Tarefa]):
         # 3. Criar Materiais e MaterialTarefa
         for material_data in tutorial_data["materiais"]:
             # Criar ou buscar Material
-            material, created = Material.objects.get_or_create(
+            material, _created = Material.objects.get_or_create(
                 nome=material_data["nome"]
             )
             # Criar MaterialTarefa
