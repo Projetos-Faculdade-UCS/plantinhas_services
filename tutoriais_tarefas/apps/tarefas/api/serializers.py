@@ -1,6 +1,10 @@
 from apps.tarefas.models import Etapa
+from apps.tarefas.models import Material
 from apps.tarefas.models import MaterialTarefa
 from apps.tarefas.models import Tarefa
+from apps.tarefas.models import TarefaHabilidade
+
+from django.core import validators
 
 from rest_framework import serializers
 
@@ -67,3 +71,88 @@ class TarefaDetailSerializer(TarefaListSerializer):
 
     class Meta(TarefaListSerializer.Meta):
         fields = TarefaListSerializer.Meta.fields + ["tutorial"]
+
+
+# CREATE SERIALIZERS
+
+
+class MaterialTarefaCreateSerializer(serializers.Serializer):
+    nome = serializers.CharField(max_length=100)
+    quantidade = serializers.DecimalField(max_digits=10, decimal_places=2)
+    unidade = serializers.CharField(max_length=50, default="un")
+
+
+class EtapaCreateSerializer(serializers.Serializer):
+    descricao = serializers.CharField()
+    ordem = serializers.IntegerField()
+
+
+class TutorialCreateSerializer(serializers.Serializer):
+    materiais = MaterialTarefaCreateSerializer(many=True)
+    etapas = EtapaCreateSerializer(many=True)
+
+
+class HabilidadeCreateSerializer(serializers.Serializer):
+    id = serializers.IntegerField()
+    multiplicador_xp = serializers.FloatField(
+        validators=[
+            validators.MinValueValidator(0.1),
+            validators.MaxValueValidator(10.0),
+        ]
+    )
+
+
+class TarefaCreateSerializer(serializers.ModelSerializer[Tarefa]):
+    habilidade = HabilidadeCreateSerializer(write_only=True)
+    tutorial = TutorialCreateSerializer(write_only=True)
+
+    class Meta:
+        model = Tarefa
+        fields = [
+            "plantio_id",
+            "nome",
+            "tipo",
+            "quantidade_total",
+            "cron",
+            "habilidade",
+            "tutorial",
+        ]
+
+    def create(self, validated_data: dict) -> Tarefa:
+        # Extrair dados aninhados
+        print(validated_data)
+        habilidade_data = validated_data.pop("habilidade")
+        tutorial_data = validated_data.pop("tutorial")
+
+        # 1. Criar ou buscar TarefaHabilidade
+        tarefa_habilidade, created = TarefaHabilidade.objects.get_or_create(
+            habilidade_id=habilidade_data["id"],
+            defaults={"multiplicador_xp": habilidade_data["multiplicador_xp"]},
+        )
+
+        # 2. Criar Tarefa
+        tarefa = Tarefa.objects.create(habilidade=tarefa_habilidade, **validated_data)
+
+        # 3. Criar Materiais e MaterialTarefa
+        for material_data in tutorial_data["materiais"]:
+            # Criar ou buscar Material
+            material, created = Material.objects.get_or_create(
+                nome=material_data["nome"]
+            )
+            # Criar MaterialTarefa
+            MaterialTarefa.objects.create(
+                tarefa=tarefa,
+                material=material,
+                quantidade=material_data["quantidade"],
+                unidade=material_data["unidade"],
+            )
+
+        # 4. Criar Etapas
+        for etapa_data in tutorial_data["etapas"]:
+            Etapa.objects.create(
+                tarefa=tarefa,
+                descricao=etapa_data["descricao"],
+                ordem=etapa_data["ordem"],
+            )
+
+        return tarefa
