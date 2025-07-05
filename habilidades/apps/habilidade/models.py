@@ -12,7 +12,7 @@ class Habilidade(models.Model):
 
 class HabilidadeUser(models.Model):
     user_id: "models.IntegerField[int, int]" = models.IntegerField()
-    habilidade: "models.ForeignKey[Habilidade, Habilidade]" = models.ForeignKey(
+    habilidade: "models.OneToOneField[Habilidade, Habilidade]" = models.OneToOneField(
         Habilidade, on_delete=models.CASCADE
     )
     xp: "models.DecimalField[float | Decimal, Decimal]" = models.DecimalField(
@@ -25,6 +25,11 @@ class HabilidadeUser(models.Model):
         expression=(models.F("nivel") * 30) - 20,
         db_persist=True,
         output_field=models.IntegerField(),
+    )
+    porcentagem: "models.GeneratedField" = models.GeneratedField(
+        expression=models.F("xp") / (models.F("nivel") * 30 - 20) * 100,
+        db_persist=True,
+        output_field=models.DecimalField(max_digits=5, decimal_places=2),
     )
 
     class Meta:

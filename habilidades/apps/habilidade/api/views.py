@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from decimal import Decimal
 from typing import Any
 
-from apps.habilidade.api.serializers import HabilidadeUserSerializer
+from apps.habilidade.api.serializers import HabilidadeSerializer
 from apps.habilidade.api.serializers import MultiplicarXpSerializer
 from apps.habilidade.models import Habilidade
 from apps.habilidade.models import HabilidadeUser
@@ -15,9 +15,9 @@ from rest_framework.response import Response
 from rest_framework.serializers import BaseSerializer
 
 
-class HabilidadeViewSet(viewsets.ModelViewSet[HabilidadeUser]):
-    queryset = HabilidadeUser.objects.all()
-    serializer_class = HabilidadeUserSerializer
+class HabilidadeViewSet(viewsets.ModelViewSet[Habilidade]):
+    queryset = Habilidade.objects.all()
+    serializer_class = HabilidadeSerializer
 
     def get_serializer_class(self) -> type[BaseSerializer[Any]]:
         if self.action == "multiplicar_xp":
@@ -25,13 +25,11 @@ class HabilidadeViewSet(viewsets.ModelViewSet[HabilidadeUser]):
 
         return super().get_serializer_class()
 
-    @action(detail=False, methods=["post"], url_path="multiplicar-xp")
+    @action(detail=True, methods=["post"], url_path="multiplicar-xp")
     def multiplicar_xp(self, request: Request, pk: int | None = None):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        habilidade = Habilidade.objects.get(
-            id=serializer.validated_data["habilidade_id"]
-        )
+        habilidade = Habilidade.objects.get(id=pk)
         user = request.user
         multiplicador = serializer.validated_data["multiplicador"]
 
@@ -44,6 +42,7 @@ class HabilidadeViewSet(viewsets.ModelViewSet[HabilidadeUser]):
             habilidade_user.xp = 1
             habilidade_user.nivel = 1
             return Response(
+                data={"status": "Habilidade criada com XP inicial de 1 e nível 1"},
                 status=status.HTTP_201_CREATED,
             )
 
@@ -61,7 +60,7 @@ class HabilidadeViewSet(viewsets.ModelViewSet[HabilidadeUser]):
 
         habilidade_user.save()
 
-        return Response(status=status.HTTP_204_NO_CONTENT)
+        return Response(status=status.HTTP_200_OK, data={"status": "XP multiplicado"})
 
     @dataclass
     class _CalculoParametros:

@@ -1,3 +1,4 @@
+from decimal import Decimal
 from typing import TypedDict
 
 from apps.habilidade.models import Habilidade
@@ -6,31 +7,20 @@ from apps.habilidade.models import HabilidadeUser
 from rest_framework import serializers
 
 
-class HabilidadeSerializer(serializers.ModelSerializer[Habilidade]):
-    class Meta:  # type: ignore
-        model = Habilidade
-        fields = ["id", "nome"]
-
-    def validate_nome(self, value: str) -> str:
-        if not value:
-            raise serializers.ValidationError(
-                "O nome da habilidade não pode ser vazio."
-            )
-        return value
-
-
 class HabilidadeUserSerializer(serializers.ModelSerializer[HabilidadeUser]):
-    habilidade = HabilidadeSerializer()
-
     class Meta:  # type: ignore
         model = HabilidadeUser
         fields = [
-            "user_id",
-            "habilidade",
             "xp",
             "nivel",
+            "xp_para_upar",
+            "porcentagem",
         ]
-        read_only_fields = ["user_id", "habilidade"]
+        read_only_fields = [
+            "xp",
+            "nivel",
+            "xp_para_upar",
+        ]
         depth = 1
         extra_kwargs = {
             "xp": {"min_value": 0, "max_value": 10},
@@ -45,14 +35,31 @@ class HabilidadeUserSerializer(serializers.ModelSerializer[HabilidadeUser]):
         return value
 
 
+class HabilidadeSerializer(serializers.ModelSerializer[Habilidade]):
+    detalhes = HabilidadeUserSerializer(
+        source="habilidadeuser",
+        read_only=True,
+    )
+
+    class Meta:  # type: ignore
+        model = Habilidade
+        fields = ["id", "nome", "detalhes"]
+        read_only_fields = ["id", "detalhes", "nome"]
+
+
 class MultiplicarXpModel(TypedDict):
     habilidade_id: int
     multiplicador: float
 
 
 class MultiplicarXpSerializer(serializers.Serializer[MultiplicarXpModel]):
-    habilidade_id = serializers.IntegerField(required=True)
     multiplicador = serializers.FloatField(required=True, min_value=1)
 
     class Meta:  # type: ignore
-        fields = ["habilidade_id", "multiplicador"]
+        fields = ["multiplicador"]
+
+
+class MultiplicarXpResponseModel(TypedDict):
+    status: str
+    xp_ganho: Decimal
+    novo_nivel: int
