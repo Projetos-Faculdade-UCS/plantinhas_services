@@ -1,8 +1,5 @@
 # Override file to add auth dependency to all services
 # This file is automatically loaded by docker-compose when present
-
-version: '3.8'
-
 services:
   catalogo:
     depends_on:
