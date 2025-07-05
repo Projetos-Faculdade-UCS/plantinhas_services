@@ -3,6 +3,7 @@ from decimal import Decimal
 from typing import Any
 
 from apps.habilidade.api.serializers import HabilidadeSerializer
+from apps.habilidade.api.serializers import MultiplicarXpResponseModel
 from apps.habilidade.api.serializers import MultiplicarXpSerializer
 from apps.habilidade.models import Habilidade
 from apps.habilidade.models import HabilidadeUser
@@ -41,8 +42,13 @@ class HabilidadeViewSet(viewsets.ModelViewSet[Habilidade]):
         if created:
             habilidade_user.xp = 1
             habilidade_user.nivel = 1
+            response: MultiplicarXpResponseModel = {
+                "novo_nivel": habilidade_user.nivel,
+                "xp_ganho": Decimal(habilidade_user.xp),
+                "status": "Habilidade criada com XP inicial de 1 e nível 1",
+            }
             return Response(
-                data={"status": "Habilidade criada com XP inicial de 1 e nível 1"},
+                data=response,
                 status=status.HTTP_201_CREATED,
             )
 
@@ -60,7 +66,13 @@ class HabilidadeViewSet(viewsets.ModelViewSet[Habilidade]):
 
         habilidade_user.save()
 
-        return Response(status=status.HTTP_200_OK, data={"status": "XP multiplicado"})
+        response: MultiplicarXpResponseModel = {
+            "novo_nivel": habilidade_user.nivel,
+            "xp_ganho": resultado.xp_ganho,
+            "status": "XP multiplicado com sucesso",
+        }
+
+        return Response(status=status.HTTP_200_OK, data=response)
 
     @dataclass
     class _CalculoParametros:
@@ -72,6 +84,7 @@ class HabilidadeViewSet(viewsets.ModelViewSet[Habilidade]):
     class _CalculoResultado:
         xp: Decimal
         nivel: int
+        xp_ganho: Decimal
 
     def _calcular_xp_para_upar(self, nivel: int) -> int:
         """Calcula a quantidade de XP necessária para upar para o próximo nível."""
@@ -86,10 +99,13 @@ class HabilidadeViewSet(viewsets.ModelViewSet[Habilidade]):
             novo_nivel += 1
             xp_para_upar = self._calcular_xp_para_upar(novo_nivel)
 
+        xp_ganho = novo_xp - params.xp_atual
+
         if novo_nivel > params.lvl_atual:
             novo_xp = Decimal(1)
 
         return self._CalculoResultado(
             xp=novo_xp,
             nivel=novo_nivel,
+            xp_ganho=xp_ganho,
         )
