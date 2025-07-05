@@ -114,6 +114,16 @@ class TarefaDetailSerializer(TarefaListSerializer):
         ]
 
 
+class HabilidadeSerializer(serializers.ModelSerializer[TarefaHabilidade]):
+    class Meta:  # type: ignore
+        model = TarefaHabilidade
+        fields = [
+            "id",
+            "multiplicador_xp",
+        ]
+        read_only_fields = ["id"]  # id is auto-generated, so it should be read-only
+
+
 # CREATE SERIALIZERS
 
 

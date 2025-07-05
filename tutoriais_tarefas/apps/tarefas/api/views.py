@@ -1,5 +1,6 @@
 from typing import Any
 
+from apps.tarefas.api.serializers import HabilidadeSerializer
 from apps.tarefas.api.serializers import TarefaCreateSerializer
 from apps.tarefas.api.serializers import TarefaDetailSerializer
 from apps.tarefas.api.serializers import TarefaListSerializer
@@ -7,6 +8,7 @@ from apps.tarefas.models import Tarefa
 
 from django.db import transaction
 
+from rest_framework.decorators import action
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
@@ -60,4 +62,22 @@ class TarefaViewSet(ModelViewSet[Tarefa]):
                 "tarefas": response_serializer.data,  # type: ignore
             },
             status=201,
+        )
+
+    @action(detail=True, methods=["post"])
+    def realizar(self, request: "Request", pk: int | None = None):
+        tarefa = self.get_object()
+        if bool(tarefa.concluida):  # type: ignore
+            return Response({"message": "Tarefa já concluída"}, status=400)
+
+        tarefa.realizar()
+        tarefa.save()
+
+        serializer = HabilidadeSerializer(tarefa.habilidade)
+        return Response(
+            {
+                "message": "Tarefa realizada com sucesso",
+                "tarefa": serializer.data,  # type: ignore
+            },
+            status=200,
         )

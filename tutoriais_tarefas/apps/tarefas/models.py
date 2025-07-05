@@ -5,6 +5,7 @@ import datetime
 from django.core import validators
 from django.db import models
 from django.db.models.lookups import GreaterThanOrEqual
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 
@@ -123,6 +124,18 @@ class Tarefa(models.Model):
 
     def __str__(self) -> str:
         return self.nome
+
+    def realizar(self) -> None:
+        """
+        Marca a tarefa como realizada, atualizando a quantidade realizada e a data da última realização.
+        Se a tarefa for concluída, também atualiza a data de conclusão.
+        """
+        self.quantidade_realizada += 1
+        self.data_ultima_realizacao = timezone.now()
+
+        if self.quantidade_realizada >= self.quantidade_total:
+            self.concluida = True
+            self.data_conclusao = timezone.now()
 
     class Meta:
         verbose_name = _("Tarefa")
