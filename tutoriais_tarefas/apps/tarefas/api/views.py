@@ -10,6 +10,7 @@ from apps.tarefas.models import Tarefa
 from django.db import transaction
 
 from rest_framework.decorators import action
+from rest_framework.exceptions import NotAcceptable
 from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
@@ -69,7 +70,7 @@ class TarefaViewSet(ModelViewSet[Tarefa]):
     def realizar(self, request: "Request", pk: int | None = None):
         tarefa = self.get_object()
         if bool(tarefa.concluida):  # type: ignore
-            return Response({"message": "Tarefa já concluída"}, status=400)
+            raise NotAcceptable("Tarefa já concluída")
 
         pode_realizar_tarefa = CronHelper.pode_realizar_tarefa(
             tarefa.cron,
@@ -77,9 +78,8 @@ class TarefaViewSet(ModelViewSet[Tarefa]):
         )
 
         if not pode_realizar_tarefa:
-            return Response(
-                {"message": "Tarefa já realizada"},
-                status=400,
+            raise NotAcceptable(
+                "Tarefa já foi realizada no período definido.",
             )
 
         tarefa.realizar()
