@@ -176,7 +176,7 @@ AUTH_SERVICE_TOKEN_URL: str = str(
 AUTH_BASE_URL: str = str(env("AUTH_BASE_URL", default="http://localhost:8005/"))  # type: ignore
 
 
-REST_FRAMEWORK = {
+REST_FRAMEWORK: dict[str, Any] = {
     # other settings
     "EXCEPTION_HANDLER": "drf_standardized_errors.handler.exception_handler",
     "DEFAULT_FILTER_BACKENDS": [

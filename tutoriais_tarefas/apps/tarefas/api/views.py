@@ -11,10 +11,14 @@ from rest_framework.request import Request
 from rest_framework.response import Response
 from rest_framework.viewsets import ModelViewSet
 
+from django_filters.rest_framework import DjangoFilterBackend
+
 
 class TarefaViewSet(ModelViewSet[Tarefa]):
     queryset = Tarefa.objects.all()
     http_method_names = ["get", "post", "put"]
+    filter_backends = [DjangoFilterBackend]
+    filterset_fields = ["plantio_id"]
 
     def get_serializer_class(self):
         if self.action == "retrieve":
