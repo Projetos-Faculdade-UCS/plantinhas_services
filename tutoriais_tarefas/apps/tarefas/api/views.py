@@ -1,5 +1,6 @@
 from typing import Any
 
+from apps.core.helpers import CronHelper
 from apps.tarefas.api.serializers import HabilidadeSerializer
 from apps.tarefas.api.serializers import TarefaCreateSerializer
 from apps.tarefas.api.serializers import TarefaDetailSerializer
@@ -69,6 +70,17 @@ class TarefaViewSet(ModelViewSet[Tarefa]):
         tarefa = self.get_object()
         if bool(tarefa.concluida):  # type: ignore
             return Response({"message": "Tarefa já concluída"}, status=400)
+
+        pode_realizar_tarefa = CronHelper.pode_realizar_tarefa(
+            tarefa.cron,
+            tarefa.data_ultima_realizacao,
+        )
+
+        if not pode_realizar_tarefa:
+            return Response(
+                {"message": "Tarefa já realizada"},
+                status=400,
+            )
 
         tarefa.realizar()
         tarefa.save()

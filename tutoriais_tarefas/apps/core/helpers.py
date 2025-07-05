@@ -59,7 +59,7 @@ class CronHelper:
         return None
 
     @staticmethod
-    def pode_concluir_tarefa(
+    def pode_realizar_tarefa(
         cron_expression: str, ultima_realizacao: datetime | None
     ) -> bool:
         """

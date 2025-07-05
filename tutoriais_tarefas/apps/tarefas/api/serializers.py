@@ -44,9 +44,9 @@ class TarefaListSerializer(serializers.ModelSerializer[Tarefa]):
         source="quantidade_realizada", read_only=True
     )
     ultima_alteracao = serializers.DateTimeField(source="atualizado_em", read_only=True)
-    pode_concluir_tarefa = serializers.SerializerMethodField()
+    pode_realizar_tarefa = serializers.SerializerMethodField()
 
-    def get_pode_concluir_tarefa(self, obj: Tarefa) -> bool:
+    def get_pode_realizar_tarefa(self, obj: Tarefa) -> bool:
         """
         Determines if the task can be concluded based on the cron expression.
         This is a placeholder method and should be implemented with actual logic.
@@ -54,7 +54,7 @@ class TarefaListSerializer(serializers.ModelSerializer[Tarefa]):
         if bool(obj.concluida):  # type: ignore
             return False
 
-        return CronHelper.pode_concluir_tarefa(
+        return CronHelper.pode_realizar_tarefa(
             obj.cron,
             obj.data_ultima_realizacao,
         )
@@ -69,7 +69,7 @@ class TarefaListSerializer(serializers.ModelSerializer[Tarefa]):
             "quantidade_total",
             "quantidade_completada",
             "ultima_alteracao",
-            "pode_concluir_tarefa",
+            "pode_realizar_tarefa",
         ]
 
 
@@ -77,7 +77,7 @@ class TarefaDetailSerializer(TarefaListSerializer):
     tutorial = serializers.SerializerMethodField()
     frequencia = serializers.SerializerMethodField()
     data_proxima_ocorrencia = serializers.SerializerMethodField()
-    pode_concluir_tarefa = serializers.SerializerMethodField()
+    pode_realizar_tarefa = serializers.SerializerMethodField()
 
     def get_tutorial(self, obj: Tarefa) -> dict[str, Any] | None:
         return {
@@ -91,7 +91,7 @@ class TarefaDetailSerializer(TarefaListSerializer):
     def get_data_proxima_ocorrencia(self, obj: Tarefa) -> float | None:
         return CronHelper.get_data_proxima_ocorrencia(obj.cron)
 
-    def get_pode_concluir_tarefa(self, obj: Tarefa) -> bool:
+    def get_pode_realizar_tarefa(self, obj: Tarefa) -> bool:
         """
         Determines if the task can be concluded based on the cron expression.
         This is a placeholder method and should be implemented with actual logic.
@@ -99,7 +99,7 @@ class TarefaDetailSerializer(TarefaListSerializer):
         if bool(obj.concluida):  # type: ignore
             return False
 
-        return CronHelper.pode_concluir_tarefa(
+        return CronHelper.pode_realizar_tarefa(
             obj.cron,
             obj.data_ultima_realizacao,
         )
@@ -108,7 +108,7 @@ class TarefaDetailSerializer(TarefaListSerializer):
         fields = [
             *TarefaListSerializer.Meta.fields,
             "frequencia",
-            "pode_concluir_tarefa",
+            "pode_realizar_tarefa",
             "data_proxima_ocorrencia",
             "tutorial",
         ]
