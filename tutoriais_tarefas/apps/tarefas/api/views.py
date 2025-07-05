@@ -77,7 +77,7 @@ class TarefaViewSet(ModelViewSet[Tarefa]):
         return Response(
             {
                 "message": "Tarefa realizada com sucesso",
-                "tarefa": serializer.data,  # type: ignore
+                "habilidade": serializer.data,  # type: ignore
             },
             status=200,
         )
