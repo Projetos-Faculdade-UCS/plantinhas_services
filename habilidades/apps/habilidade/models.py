@@ -5,6 +5,7 @@ from django.db import models
 
 class Habilidade(models.Model):
     nome: "models.CharField[str, str]" = models.CharField(max_length=50)
+    descricao: "models.TextField[str, str]" = models.TextField(blank=True, null=True)
 
     def __str__(self):
         return self.nome
