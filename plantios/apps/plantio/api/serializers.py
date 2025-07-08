@@ -167,10 +167,14 @@ class PlantioSerializer(serializers.ModelSerializer[Plantio]):
     def to_internal_value(self, data: Any) -> Any:
         """Convert input data to internal representation."""
         # Map saude and sede to their update fields
-        if "saude" in data:
-            data["saude_update"] = data.pop("saude")
-        if "sede" in data:
-            data["sede_update"] = data.pop("sede")
+        if (
+            self.context.get("request", {}).method == "PATCH"
+            or self.context.get("request", {}).method == "PUT"
+        ):
+            if "saude" in data:
+                data["saude_update"] = data.pop("saude")
+            if "sede" in data:
+                data["sede_update"] = data.pop("sede")
 
         return super().to_internal_value(data)
 
