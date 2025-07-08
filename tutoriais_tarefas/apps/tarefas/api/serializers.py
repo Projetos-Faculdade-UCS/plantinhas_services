@@ -45,6 +45,7 @@ class TarefaListSerializer(serializers.ModelSerializer[Tarefa]):
     )
     ultima_alteracao = serializers.DateTimeField(source="atualizado_em", read_only=True)
     pode_realizar_tarefa = serializers.SerializerMethodField()
+    frequencia = serializers.SerializerMethodField()
 
     def get_pode_realizar_tarefa(self, obj: Tarefa) -> bool:
         """
@@ -66,11 +67,15 @@ class TarefaListSerializer(serializers.ModelSerializer[Tarefa]):
             "nome",
             "concluido",
             "tipo",
+            "frequencia",
             "quantidade_total",
             "quantidade_completada",
             "ultima_alteracao",
             "pode_realizar_tarefa",
         ]
+
+    def get_frequencia(self, obj: Tarefa) -> str | None:
+        return CronHelper.get_frequencia(obj.cron)
 
 
 class TarefaDetailSerializer(TarefaListSerializer):
@@ -107,6 +112,7 @@ class TarefaDetailSerializer(TarefaListSerializer):
     class Meta(TarefaListSerializer.Meta):
         fields = [
             *TarefaListSerializer.Meta.fields,
+            "plantio_id",
             "frequencia",
             "pode_realizar_tarefa",
             "data_proxima_ocorrencia",

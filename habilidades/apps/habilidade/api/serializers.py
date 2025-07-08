@@ -43,8 +43,8 @@ class HabilidadeSerializer(serializers.ModelSerializer[Habilidade]):
 
     class Meta:  # type: ignore
         model = Habilidade
-        fields = ["id", "nome", "detalhes"]
-        read_only_fields = ["id", "detalhes", "nome"]
+        fields = ["id", "nome", "descricao", "detalhes"]
+        read_only_fields = ["id", "detalhes", "nome", "descricao"]
 
 
 class MultiplicarXpModel(TypedDict):
