@@ -51,9 +51,3 @@ class CustomPagination(PageNumberPagination):
             except (KeyError, ValueError):
                 pass
         return self.page_size or 10
-
-
-class PlantaPagination(CustomPagination):
-    """Custom pagination class for plantas with page size 3."""
-
-    page_size = 3

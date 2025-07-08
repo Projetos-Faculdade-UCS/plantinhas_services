@@ -1,0 +1,42 @@
+[
+    {
+        "model": "habilidade.habilidade",
+        "pk": 1,
+        "fields": {
+            "nome": "Preparação do solo",
+            "descricao": "Habilidade de preparar adequadamente o solo, incluindo limpeza, revolvimento, adubação e correção do pH para garantir condições ideais para o plantio."
+        }
+    },
+    {
+        "model": "habilidade.habilidade",
+        "pk": 2,
+        "fields": {
+            "nome": "Seleção e plantio de sementes",
+            "descricao": "Capacidade de escolher sementes adequadas ao clima e condições locais, bem como técnicas corretas para plantá-las e garantir boa germinação."
+        }
+    },
+    {
+        "model": "habilidade.habilidade",
+        "pk": 3,
+        "fields": {
+            "nome": "Irrigação eficiente",
+            "descricao": "Conhecimento sobre técnicas de irrigação apropriadas para manter a umidade ideal do solo, evitando desperdício e promovendo o desenvolvimento saudável das plantas."
+        }
+    },
+    {
+        "model": "habilidade.habilidade",
+        "pk": 4,
+        "fields": {
+            "nome": "Controle de pragas e doenças",
+            "descricao": "Habilidade em identificar, prevenir e tratar pragas e doenças que possam afetar a saúde e o crescimento das plantas durante todo o ciclo produtivo."
+        }
+    },
+    {
+        "model": "habilidade.habilidade",
+        "pk": 5,
+        "fields": {
+            "nome": "Colheita e pós-colheita",
+            "descricao": "Experiência em colher adequadamente os produtos plantados e aplicar técnicas de armazenamento e conservação para garantir a qualidade e durabilidade após a colheita."
+        }
+    }
+]

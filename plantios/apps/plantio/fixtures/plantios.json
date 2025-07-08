@@ -1,0 +1,142 @@
+[
+    {
+        "model": "plantio.plantio",
+        "pk": 1,
+        "fields": {
+            "planta_id": 101,
+            "user_id": 1,
+            "data_plantio": "2025-06-01",
+            "data_prevista_colheita": "2025-09-01",
+            "saude": 85.5,
+            "sede": 40.0,
+            "situacao": "Em crescimento",
+            "informacoes_adicionais": "Plantio iniciado após poda completa da área."
+        }
+    },
+    {
+        "model": "plantio.plantio",
+        "pk": 2,
+        "fields": {
+            "planta_id": 102,
+            "user_id": 2,
+            "data_plantio": "2025-05-15",
+            "data_prevista_colheita": "2025-08-15",
+            "saude": 90.0,
+            "sede": 30.0,
+            "situacao": "Florando",
+            "informacoes_adicionais": "Primeiras flores apareceram na segunda semana de junho."
+        }
+    },
+    {
+        "model": "plantio.plantio",
+        "pk": 3,
+        "fields": {
+            "planta_id": 103,
+            "user_id": 1,
+            "data_plantio": "2025-04-10",
+            "data_prevista_colheita": "2025-07-10",
+            "saude": 75.0,
+            "sede": 55.5,
+            "situacao": "Necessita atenção",
+            "informacoes_adicionais": "Folhas amareladas e sinais de fungo nas raízes."
+        }
+    },
+    {
+        "model": "plantio.plantio",
+        "pk": 4,
+        "fields": {
+            "planta_id": 104,
+            "user_id": 3,
+            "data_plantio": "2025-03-20",
+            "data_prevista_colheita": "2025-06-20",
+            "saude": 60.0,
+            "sede": 70.0,
+            "situacao": "Doente",
+            "informacoes_adicionais": "Solo precisando de correção de pH. Excesso de sol."
+        }
+    },
+    {
+        "model": "plantio.plantio",
+        "pk": 5,
+        "fields": {
+            "planta_id": 105,
+            "user_id": 2,
+            "data_plantio": "2025-06-15",
+            "data_prevista_colheita": "2025-09-15",
+            "saude": 95.0,
+            "sede": 20.0,
+            "situacao": "Saudável",
+            "informacoes_adicionais": "Irrigação automática funcionando perfeitamente."
+        }
+    },
+    {
+        "model": "plantio.plantio",
+        "pk": 6,
+        "fields": {
+            "planta_id": 106,
+            "user_id": 3,
+            "data_plantio": "2025-05-05",
+            "data_prevista_colheita": "2025-08-05",
+            "saude": 88.0,
+            "sede": 25.0,
+            "situacao": "Em crescimento",
+            "informacoes_adicionais": "Recebendo adubo orgânico quinzenalmente."
+        }
+    },
+    {
+        "model": "plantio.plantio",
+        "pk": 7,
+        "fields": {
+            "planta_id": 107,
+            "user_id": 1,
+            "data_plantio": "2025-06-20",
+            "data_prevista_colheita": "2025-09-20",
+            "saude": 92.0,
+            "sede": 18.0,
+            "situacao": "Saudável",
+            "informacoes_adicionais": null
+        }
+    },
+    {
+        "model": "plantio.plantio",
+        "pk": 8,
+        "fields": {
+            "planta_id": 108,
+            "user_id": 2,
+            "data_plantio": "2025-04-25",
+            "data_prevista_colheita": "2025-07-25",
+            "saude": 70.0,
+            "sede": 65.0,
+            "situacao": "Necessita atenção",
+            "informacoes_adicionais": "Necessário reforçar irrigação no fim da tarde."
+        }
+    },
+    {
+        "model": "plantio.plantio",
+        "pk": 9,
+        "fields": {
+            "planta_id": 109,
+            "user_id": 3,
+            "data_plantio": "2025-03-10",
+            "data_prevista_colheita": "2025-06-10",
+            "saude": 55.0,
+            "sede": 80.0,
+            "situacao": "Crítico",
+            "informacoes_adicionais": "Pouca chuva e falha no sistema de irrigação."
+        }
+    },
+    {
+        "model": "plantio.plantio",
+        "pk": 10,
+        "fields": {
+            "planta_id": 110,
+            "user_id": 1,
+            "data_plantio": "2025-06-10",
+            "data_prevista_colheita": "2025-09-10",
+            "saude": 98.0,
+            "sede": 10.0,
+            "situacao": "Excelente",
+            "informacoes_adicionais": "Melhor desempenho entre todos os lotes atuais."
+        }
+    }
+]
