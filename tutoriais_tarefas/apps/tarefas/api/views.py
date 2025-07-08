@@ -93,3 +93,30 @@ class TarefaViewSet(ModelViewSet[Tarefa]):
             },
             status=200,
         )
+
+    @action(detail=False, methods=["get"])
+    def check_pendencias(self, request: "Request"):
+        tarefas = Tarefa.objects.filter(
+            plantio_id=request.query_params.get("plantio_id"),
+            concluida=False,
+        )
+
+        tarefas = [
+            t
+            for t in tarefas
+            if CronHelper.pode_realizar_tarefa(t.cron, t.data_ultima_realizacao)
+        ]
+
+        if not len(tarefas) > 0:
+            return Response(
+                {"message": "Não há tarefas pendentes.", "count": 0},
+                status=200,
+            )
+
+        return Response(
+            {
+                "message": f"{len(tarefas)} tarefa(s) pendente(s) encontrada(s).",
+                "count": len(tarefas),
+            },
+            status=200,
+        )
