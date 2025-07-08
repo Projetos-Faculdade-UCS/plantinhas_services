@@ -9,7 +9,7 @@ from rest_framework.permissions import IsAuthenticated
 class PlantioViewSet(viewsets.ModelViewSet):
     queryset = Plantio.objects.all()
     serializer_class = PlantioSerializer
-    http_method_names = ["get", "post", "put", "delete"]
+    http_method_names = ["get", "post", "put", "delete", "patch"]
     pagination_class = CustomPagination
     permission_classes = [IsAuthenticated]
 
