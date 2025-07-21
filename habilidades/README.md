@@ -28,3 +28,5 @@ Este serviço é responsável pelo controle de habilidades, experiência e progr
 ---
 
 > Este serviço faz parte do ecossistema de microserviços da plataforma Plantinhas. Para mais detalhes sobre integração e uso, consulte a documentação técnica.
+
+Adicionado pra testar o serviço de habilidades e progressão.
